@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+/* Header */
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    display: flex;
+    align-content: flex-start;
+    gap: 200px;
+}
+.navlink {
+    display: flex;
+    padding: 0px 100px 10px 10px;
+}
+.navbar img {
+    width: auto;
+    height: 100px;
+    padding: 20px;
+}
+.navlink a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 50px;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* Body */
+#main-body {
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+.main-images {
+    position: relative;
+    padding: 50px;
+}
+#banner-desc {
+    font-family: 'Rubik', sans-serif;
+    position: absolute;
+    top: 250px;
+    left: 200px;
+
+}
+#banner-button {
+    font-family: 'Rubik', sans-serif;
+    background-color: red;
+    box-shadow: 0 5px 0 darkred;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    position: absolute;
+    left:200px;
+    top: 500px;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    gap: 200px;
+}
+footer img {
+    width: auto;
+    height: 100px;
+    padding: 20px;
+}
+footer a {
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: auto;
+    padding: 10px;
+    margin-right: 40px;
+    margin-top: 50px;
+    font-family: 'Rubik', sans-serif;
+
+}
