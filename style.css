@@ -4,6 +4,8 @@
 .main {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+
 }
 .navbar {
     display: flex;
@@ -62,6 +64,7 @@
 footer {
     display: flex;
     gap: 200px;
+    margin-top: 928px;
 }
 footer img {
     width: auto;
@@ -175,4 +178,25 @@ input{
     border-radius:4px;
     display: inline-block;
     vertical-align: middle;
+}
+
+/* about us */
+#aboutus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left right";
+}
+#aboutusleft {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+#aboutusleft img {
+    height: auto;
+    width: 472px;
+}
+#aboutusright {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
