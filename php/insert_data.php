@@ -22,11 +22,23 @@ $sql = "INSERT INTO Account (username, password)
 $sql .= "INSERT INTO CustomerDetails (accountId, fullName, email, phoneNumber, dateOfBirth, address)
 VALUES ( (SELECT accountId from Account where username = 'test'), 'test', 'test@gmail.com', '83066382', '2000-08-01', '');";
 
-// insert LAPTOP product
+// insert Footwear
 $sql .= "INSERT INTO `Product` (name, price, category, stock, description, image)
 VALUES ( 'NYC Marathon Fuel Cell SC Elite V3', 329, 'footwear', 100, 
 'You push yourself to go the distance get the gear that helps you get the job done. the TCS New York City Marathon® FuelCell SC Elite V3 womens running shoes are built for marathon runners who never let up.',
 'res/product/ezgif-2-0a14c890e9.jpg');";
+
+// insert Footwear
+$sql .= "INSERT INTO `Product` (name, price, category, stock, description, image)
+VALUES ( '2002R', 209, 'footwear', 100, 
+'Our 2002R sneakers for men prove that slick kicks can still be comfortable.',
+'res/product/product2.jpg');";
+
+// insert Footwear
+$sql .= "INSERT INTO `Product` (name, price, category, stock, description, image)
+VALUES ( '2002R', 329, 'footwear', 100, 
+'This throwback silhouette is crafted with premium suede and mesh material for a look that sets you apart.',
+'res/product/product3.jpg');";
 
 // $sql .= "INSERT INTO `Product` (name, price, category, rating, stock, description, specification, image, bestSellingProduct)
 // VALUES ( 'HP OMEN Laptop 15-dc1010 ', 1699, 'laptop', 4.5, 60, 
