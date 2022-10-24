@@ -14,8 +14,7 @@
 
 <body>
     <?php
-    include '../components/nav.php';
-    include '../php/connect.php';
+    include 'php/connect.php';
     ?>
 
 

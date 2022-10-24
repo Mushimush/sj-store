@@ -28,6 +28,152 @@
     margin-top: 50px;
     font-family: 'Rubik', sans-serif;
 }
+.account {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 27.8px;
+}
+
+
+.navlink .account{
+    position: relative;
+    cursor: pointer;
+}
+
+.navlink .account-dropdown{
+    position: absolute;
+    top: 51.5px;
+    right:0;
+    background-color: white;
+    color:black;
+    z-index: 5;
+    min-width: 150px;
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s;
+    border:1px solid lightgrey;
+}
+
+.navlink .account-dropdown ul li hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* modal */
+.navlink .modal .modal-body{
+    padding-top: 40px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.navlink .modal .modal-body h1{
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+.navlink .modal .modal-body .input-group{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.navlink .modal .modal-body .input-group input{
+    width: 300px;
+    height: 34px;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 6px;
+    padding-left: 12px;
+    border: 1px solid #afafaf;
+}
+.navlink .modal .modal-body button{
+    width: 300px;
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 8px;
+    background: #40A3FF;
+    color:white;
+    font-size: 18px;
+    font-weight: 500;
+    border:0;
+}
+.navlink .modal .modal-body small{
+    margin-top: 20px;
+    font-size: 14px;
+    display: block;
+}
+.navlink .modal .modal-body small span{
+    margin-top: 10px;
+    color: #40A3FF;
+    cursor: pointer;
+}
+.navlink .error-message{
+    color: red;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal{
+    background-color: rgba(189, 189, 189, 0.6);
+}
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    z-index:10
+}
+  
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.modal .close {
+    color: rgb(212, 3, 3);
+    float: right;
+    font-size: 36px;
+    margin-top: -10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal .close:hover {
+    color: rgb(145, 3, 3);
+}
+  
+.modal .modal-content{
+    width: 80%;
+    margin:auto;
+    min-width: 300px;
+    max-width: 600px;    
+    padding: 24px; 
+    color: black;
+}
 
 /* Body */
 #main-body {
