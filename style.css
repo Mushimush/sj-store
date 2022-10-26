@@ -326,14 +326,10 @@ footer a {
     margin-right: 100px;
     border-style: dotted;
 }
-#rightproduct video {
-    height: 472px;
-    width: 472px;
-}
+
 .selection {
     padding: 20px;
 }
-
 
 input{
     height:34px;
@@ -345,6 +341,7 @@ input{
     display: inline-block;
     vertical-align: middle;
 }
+
 
 /* about us */
 #aboutus {

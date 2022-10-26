@@ -20,9 +20,6 @@
     else if (isset($_SESSION['custId']) && isset($_POST['id'])) {
         $id = $_POST['id'];
         $uid = $_SESSION['custId'];
-        if ($_POST['type'] == "cart") {
-            include "php/cart.php";
-        }
     }
     unset($_POST['id']); //as we don't want the product id to be the same if we reload the page
     ?>
@@ -79,7 +76,6 @@
             </nav>
             <?php
             include 'php/connect.php';
-            include "php/cartlogin.php";
             $sql = "SELECT * FROM `Product` ;";
             $result = $conn->query($sql);
 

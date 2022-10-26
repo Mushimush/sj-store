@@ -19,11 +19,10 @@
     else if (isset($_SESSION['custId']) && isset($_POST['id'])) {
         $id = $_POST['id'];
         $uid = $_SESSION['custId'];
-        if ($_POST['type'] == "cart") {
-            include "php/cart.php";
-        }
     }
+
     unset($_POST['id']); //as we don't want the product id to be the same if we reload the page
+
     ?>
 
     <div class="catalogue">
@@ -71,13 +70,16 @@
 
         <div class="productbody">
             <?php
-            include 'php/connect.php';
             $query = "SELECT * FROM `Product` where productId='" . $_GET['productId'] . "' ";
             $result = mysqli_query($conn, $query);
 
             if ($result->num_rows > 0) {
                 // output data of each row
                 while ($row = $result->fetch_assoc()) {
+                    $price = $row['price'];
+                    $productId = $row['productId'];
+                    $name = $row['name'];
+                    $image = $row['image'];
                     echo '
                         <div id="rightproduct">
                                 <img src=' . $row['image'] . '>
@@ -89,49 +91,70 @@
                         ';
                 }
             }
+            $conn->close();
             ?>
             <div id="leftproduct">
-                <form action="#">
-                    <div class="selection">
-                        <p>Please select color:</p>
-                        <input name="color" type="radio" id="black" value="black">
-                        <label name="color" for="black">Black</label>
-                        <input name="color" type="radio" id="blue" value="blue">
-                        <label name="color" for="blue">Blue</label>
-                        <input name="color" type="radio" id="green" value="green">
-                        <label name="color" for="green">Green</label>
-                        <input name="color" type="radio" id="red" value="red">
-                        <label name="color" for="black">Red</label>
-                    </div>
+                <form method="post" action="add_to_cart.php">
                     <div class="selection">
                         <p>Please select size:</p>
-                        <input name="size" type="radio" id="large" value="large">
-                        <label name="size" for="large">Large</label>
-                        <input name="size" type="radio" id="medium" value="medium">
-                        <label name="size" for="medium">Medium</label>
-                        <input name="size" type="radio" id="small" value="small">
-                        <label name="size" for="small">Small</label>
 
+                        <?php
+                        include 'php/connect.php';
+                        $query = "SELECT * from Size where productId='" . $_GET['productId'] . "'";
+                        $result = mysqli_query($conn, $query);
+
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                echo '
+                                <input name="size" type="radio" id="color" value="' . $row['size'] . '">
+                                <label name="size" for="black">' . $row['size'] . '</label>
+                            ';
+                            }
+                        }
+                        $result->free_result();
+                        ?>
                     </div>
+                    <div class="selection">
+                        <p>Please select color:</p>
+                        <?php
+                        $query = "SELECT * from Colors where productId='" . $_GET['productId'] . "'";
+                        $result = mysqli_query($conn, $query);
+
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                echo '
+                                <input name="color" type="radio" id="color" value="' . $row['color_name'] . '">
+                                <label name="color" for="black">' . $row['color_name'] . '</label>
+                            ';
+                            }
+                        }
+                        $result->free_result();
+                        ?>
+                    </div>
+
                     <div class="selection">
                         <label for="quantity">Quantity:</label>
 
-                        <input type="number" id="points" min="0" name="quantity" step="3">
+                        <input type="number" id="points" min="0" name="quantity" step="1">
 
                     </div>
                     <div class="selection">
-                        <input type="submit">
+                        <h4>Price : $<?= $price; ?></h4>
+                        <input type="hidden" name="price" value="<?= $price; ?>">
+                        <input type="hidden" name="productId" value="<?= $productId; ?>">
+                        <input type="hidden" name="image" value="<?= $image; ?>">
+                        <input type="hidden" name="name" value="<?= $name; ?>">
+
                     </div>
 
-
-
-
+                    <div class="selection">
+                        <div align="center"><button type="submit" name="addToCart" class="add_to_cart">Add</button></div>
+                    </div>
                 </form>
-
-
             </div>
         </div>
-
         <footer>
             <img src="res/coollogo_com-63181092.png" alt="logo">
             <a href="">Contact us !</a>
