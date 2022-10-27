@@ -2,6 +2,15 @@
 include("php/connect.php");
 include("php/auth.php");
 
+$res = "";
+if (!isset($_SESSION['custId']) && isset($_POST['id']))
+    $res = "NOT_LOGGED_IN";
+else if (isset($_SESSION['custId']) && isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $uid = $_SESSION['custId'];
+}
+unset($_POST['id']); //as we don't want the product id to be the same if we reload the page
+
 $fullName = $_POST['fullName'];
 $email = $_POST["email"];
 $phoneNumber = $_POST["phoneNumber"];
@@ -9,32 +18,16 @@ $address = $_POST["address"];
 $totalAmount = $_POST["totalAmount"];
 $custId = $_POST["custId"];
 
-
-$sql = "update CustomerDetails set fullName='$fullName', email='$email', phoneNumber='$phoneNumber', address='$address' where custId = '$custId'";
-mysqli_query($conn, $sql);
-if (mysqli_affected_rows($conn) <= 0) {
-    $success = 'false';
-}
-
-//TEST - case if payment unsuccessful
-else if ($custId == 10)
-    $success = 'false';
-
-
-//handle payment by third party 
-//assume success
-//$sql = "insert `Order` set totalAmount = $totalAmount, purchasedDate =now(), status = 1 where orderId = ".$orderId;
-
-$sql = "INSERT INTO Order (`status`, custId, email, purchasedDate, totalAmount)
-    VALUES ('1', $custId, now(), $totalAmount)";
-
+$sql = "INSERT INTO Order (`status`, custId, purchasedDate, totalAmount) VALUES (1, $custId, now(), $totalAmount)";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error ";
 }
 
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

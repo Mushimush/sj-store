@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=League+Gothic&family=Quicksand:wght@300&display=swap');
 /* Header */
 
 .main {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 
 }
 .navbar {
@@ -210,7 +210,6 @@
 footer {
     display: flex;
     gap: 200px;
-    margin-top: 928px;
 }
 footer img {
     width: auto;
@@ -307,6 +306,7 @@ footer a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "right left" ;
+    padding: 50px;
 }
 #rightproduct {
     grid-area: right;
@@ -316,15 +316,16 @@ footer a {
     row-gap: 20px;
 
 
+
 }
 #leftproduct {
+    font-family: 'Rubik', sans-serif;
     grid-area: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     margin-right: 100px;
-    border-style: dotted;
 }
 
 .selection {
@@ -342,12 +343,65 @@ input{
     vertical-align: middle;
 }
 
+#quantity {
+    margin-right: 20px;
+}
+
+#addtocartbtn {
+    font-family: 'Rubik', sans-serif;
+    box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	background-color:#fe1a00;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+
+}
+
+#addtocartbtn:hover {
+    background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+	background-color:#ce0100;
+
+}
+
+#addtocartbtn:active {
+    position:relative;
+	top:1px;
+
+}
+#colortext {
+    margin-left: 20px;
+}
+
+#desctext {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: lighter;
+    margin-top: 30px;
+    margin-left: 30px;
+    line-height: 1.5rem
+
+}
+
+/* Cart */
+.cart {
+    display: grid;
+    
+}
+
 
 /* about us */
 #aboutus {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "left right";
+    margin-bottom: 300px;
 }
 #aboutusleft {
     display: flex;

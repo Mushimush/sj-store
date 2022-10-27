@@ -76,59 +76,37 @@
                 // exit;
                 $total_quantity = 0;
                 $total_price = 0;
-            ?>
-                <table class="tbl-cart" cellpadding="10" cellspacing="1">
-                    <tbody>
-                        <tr>
-                            <th style="text-align:left;">Image</th>
-                            <th style="text-align:left;">Name</th>
-                            <th style="text-align:right;" width="5%">Quantity</th>
-                            <th style="text-align:right;" width="5%">Size</th>
-                            <th style="text-align:right;" width="5%">Color</th>
-                            <th style="text-align:right;" width="10%">Unit Price</th>
-                            <th style="text-align:right;" width="10%">Total</th>
-                            <th style="text-align:center;" width="5%">Remove</th>
-                        </tr>
-                        <?php
-                        foreach ($_SESSION["cart_items"] as $key => $item) {
-                            $item_price = $item["quantity"] * $item["price"];
-                        ?>
-                            <tr>
-                                <td><img src="<?php echo $item["image"]; ?>" class="cart-item-image" /></td>
-                                <td><?php echo $item["name"]; ?></td>
-                                <td style="text-align:right;"><?php echo $item["qty"]; ?></td>
-                                <td style="text-align:right;"><?php echo $item["size"]; ?></td>
-                                <td style="text-align:right;"><?php echo $item["color"]; ?></td>
-                                <td style="text-align:right;"><?php echo "$ " . $item["price"]; ?></td>
-                                <td style="text-align:right;"><?php echo "$ " . number_format($item["qty"] * $item["price"], 2); ?></td>
-                                <td style="text-align:center;"><a href="cart.php?action=remove&code=<?php echo $key; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
-                            </tr>
-                        <?php
-                            $total_quantity += $item["qty"];
-                            $total_price += ($item["price"] * $item["qty"]);
-                            $_SESSION['totalprice'] = $total_price;
-                        }
-                        ?>
+            }
+            foreach ($_SESSION["cart_items"] as $key => $item) {
+                $item_price = $item["quantity"] * $item["price"];
+                $total_quantity += $item["qty"];
+                $item_total = $item_price * $total_quantity;
+                $total_price += ($item["price"] * $item["qty"]);
+                $_SESSION['totalprice'] = $total_price;
 
-                        <tr>
-                            <td colspan="2" align="right">Total:</td>
-                            <td align="right"><?php echo $total_quantity; ?></td>
-                            <td align="right" colspan="2"><strong><?php echo "$ " . number_format($total_price, 2); ?></strong></td>
-                            <td> <a href="payment.php">Payment</a>
-                            </td>
-
-
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            <?php
-            } else {
-            ?>
-                <div class="no-records">Your Cart is Empty</div>
-            <?php
+                //html code 
+                echo '
+                    <div class="cartitem">
+                    <div id="cartimage">
+                    <img src=' . $item['image'] . '>
+                    </div>
+                    <div id="cartdesc">
+                        <p> ' . $item["name"] . ' </p>
+                        <p> ' . $item["qty"] . ' </p>
+                        <p> ' . $item["size"] . ' </p>
+                        <p> $' . $item["price"] . ' </p>
+                    </div>
+                    <div id="carttotal" >
+                         <p> $' . number_format($item["qty"] * $item["price"], 2) . ' </p>
+                    </div>
+    
+                </div>
+ 
+                    ';
             }
             ?>
+
+
 
         </div>
 

@@ -108,9 +108,6 @@
                                 <input type="hidden" name="custId" value="<?php echo $uid; ?>" />
                                 <div>
                                     <h3>Total Price: $ <?php echo $totalprice ?></h4>
-                                        <h3>Total Price: $ <?php echo $uid ?></h4>
-
-
                                 </div>
                                 <button type="submit" name="placeorder" class="place-order-btn">Place Order</button>
                             </div>

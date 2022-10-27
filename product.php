@@ -77,6 +77,8 @@
                 // output data of each row
                 while ($row = $result->fetch_assoc()) {
                     $price = $row['price'];
+                    $desc = $row['description'];
+                    $color = $row['color'];
                     $productId = $row['productId'];
                     $name = $row['name'];
                     $image = $row['image'];
@@ -116,33 +118,22 @@
                         ?>
                     </div>
                     <div class="selection">
-                        <p>Please select color:</p>
-                        <?php
-                        $query = "SELECT * from Colors where productId='" . $_GET['productId'] . "'";
-                        $result = mysqli_query($conn, $query);
+                        <h4 id="colortext">Color:
+                            <?= $color; ?>
+                        </h4>
 
-                        if ($result->num_rows > 0) {
-                            // output data of each row
-                            while ($row = $result->fetch_assoc()) {
-                                echo '
-                                <input name="color" type="radio" id="color" value="' . $row['color_name'] . '">
-                                <label name="color" for="black">' . $row['color_name'] . '</label>
-                            ';
-                            }
-                        }
-                        $result->free_result();
-                        ?>
                     </div>
 
                     <div class="selection">
-                        <label for="quantity">Quantity:</label>
+                        <label id="quantity" for="quantity">Quantity:</label>
 
                         <input type="number" id="points" min="0" name="quantity" step="1">
 
                     </div>
                     <div class="selection">
-                        <h4>Price : $<?= $price; ?></h4>
+                        <h4>Unit Price : $<?= $price; ?></h4>
                         <input type="hidden" name="price" value="<?= $price; ?>">
+                        <input type="hidden" name="color" value="<?= $color; ?>">
                         <input type="hidden" name="productId" value="<?= $productId; ?>">
                         <input type="hidden" name="image" value="<?= $image; ?>">
                         <input type="hidden" name="name" value="<?= $name; ?>">
@@ -150,9 +141,14 @@
                     </div>
 
                     <div class="selection">
-                        <div align="center"><button type="submit" name="addToCart" class="add_to_cart">Add</button></div>
+                        <div align="center"><button id="addtocartbtn" type="submit" name="addToCart" class="add_to_cart">Add to cart</button></div>
                     </div>
                 </form>
+                <div>
+                    <h4 id="desctext">
+                        <?= $desc; ?>
+                    </h4>
+                </div>
             </div>
         </div>
         <footer>

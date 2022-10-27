@@ -24,5 +24,5 @@ if (isset($_POST['addToCart'])) {
         'name' => $name,
 
     ];
-    header("location:cart.php", "location:payment.php");
+    header("location:cart.php");
 }

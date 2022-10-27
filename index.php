@@ -78,7 +78,7 @@
         </div>
         <footer>
             <img src="res/coollogo_com-63181092.png" alt="logo">
-            <a href="">Contact us !</a>
+            <a href="contact.html">Contact us !</a>
 
         </footer>
     </div>
