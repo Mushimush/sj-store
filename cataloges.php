@@ -14,11 +14,11 @@
     <?php
     require('php/connect.php');
     require('auth_session.php');
-    if (isset($_GET['productCategory'])) {
-        $productCategory = $_GET['productCategory'];
-    }
-    $privilege = $_SESSION['privilege'];
+    $productCategory = $_GET['productCategory'];
+
     $username = $_SESSION['username'];
+    $privilege = $_SESSION['privilege'];
+
     ?>
     <div class="catalogue">
         <div class="main">

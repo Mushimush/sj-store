@@ -10,14 +10,59 @@
 </head>
 
 <body>
+    <?php
+    require('php/connect.php');
+    require('auth_session.php');
+
+    $username = $_SESSION['username'];
+    $privilege = $_SESSION['privilege'];
+
+    ?>
     <div class="main">
         <div class="navbar">
-            <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
+            <a href="index.php">
+                <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
+            </a>
             <div class="navlink">
-                <a href="cataloge.html">All Products</a>
-                <a href="">Apparels</a>
-                <a href="">Footwear</a>
-                <a href="">Cart</a>
+                <div class="dropdown">
+                    <a href="cataloge.php">All Products</a>
+                </div>
+                <div class="dropdown">
+                    <a href="cataloge.php?productCategory=apparel">Apparels</a>
+                    <div class="dropdown-content">
+                        <a href="cataloge.php">Tees</a>
+                        <a href="cataloge.php">Shorts</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="cataloge.php?productCategory=footwear" class="dropbtn">Footwear</a>
+                    <div class="dropdown-content">
+                        <a href="cataloge.php">2002R series</a>
+                        <a href="cataloge.php">NYC Marathon series </a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="cart.php">Cart</a>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        $username = $_SESSION['username'];
+                        echo '<a href="index.php">' . $username . '</a>';
+                        // $privilege = 'admin'; // take away once sql side is solved
+                        if ($privilege == 'admin') {
+                            echo '<a href="admin.php">Admin</a>';
+                        }
+                        echo '<a href="logout.php">Logout</a>
+                        ';
+                    } else {
+                        echo '<a href="login.php">Login</a>';
+                    }
+
+                    ?>
+
+                </div>
+
             </div>
         </div>
         <div id="cartpage">

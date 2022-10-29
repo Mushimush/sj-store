@@ -35,6 +35,8 @@ $sql .= "CREATE TABLE `Product` (
     name varchar(256),
     price float(16,2),
     category varchar(64),
+    color varchar(45),
+    size varchar(45),
     stock int,
     description TEXT,
     image varchar(255)

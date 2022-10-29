@@ -14,11 +14,10 @@
     <?php
     require('php/connect.php');
     require('auth_session.php');
-    if (isset($_GET['productCategory'])) {
-        $productCategory = $_GET['productCategory'];
-    }
-    $privilege = $_SESSION['privilege'];
+    $productCategory = $_GET['productCategory'];
     $username = $_SESSION['username'];
+    $privilege = $_SESSION['privilege'];
+
     ?>
     <div class="catalogue">
         <div class="main">
@@ -78,27 +77,25 @@
             <div class="catalogue-items">
                 <?php
                 include 'php/connect.php';
-                if (isset($productCategory)) {
-                    //$sql = "SELECT * FROM Product WHERE category='$productCategory'";
-                    $sql = "SELECT p.* 
+                // $sql = "SELECT * FROM Product ORDER BY `price` ASC";
+                $sql = "SELECT p.* 
                 FROM Product as `p`
                 inner join
                 (
                    select `productId`, MIN(`productindex`) as `productindex`
-                   from Product WHERE category='$productCategory'
+                   from Product
                    group by `productId`
                    having MIN(`productindex`)
                 ) as `x`
-                on `x`.`productId` = `p`.`productId` and `x`.`productindex` = `p`.`productindex`";
+                on `x`.`productId` = `p`.`productId` and `x`.`productindex` = `p`.`productindex` ORDER BY `price` ASC";
 
+                $result = $conn->query($sql);
 
-                    $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
 
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while ($row = $result->fetch_assoc()) {
-
-                            echo '
+                        echo '
                         <div class="catalogue-content">
                             <div class="content">
                             <a href="product.php?productId=' . $row['productId'] . '">
@@ -111,43 +108,9 @@
                             </div>
                         </div>
                         ';
-                        }
                     }
-                } else {
-                    $sql = "SELECT p.* 
-                FROM Product as `p`
-                inner join
-                (
-                   select `productId`, MIN(`productindex`) as `productindex`
-                   from Product
-                   group by `productId`
-                   having MIN(`productindex`)
-                ) as `x`
-                on `x`.`productId` = `p`.`productId` and `x`.`productindex` = `p`.`productindex`";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while ($row = $result->fetch_assoc()) {
-
-                            echo '
-                    <div class="catalogue-content">
-                        <div class="content">
-                        <a href="product.php?productId=' . $row['productId'] . '">
-                            <img src=' . $row['image'] . '>
-                            <div class="product-name">' . $row['name'] . '</div>
-                           <div class="product-price">$' . $row['price'] . '</div>
-                        </a>
-
-
-                        </div>
-                    </div>
-                    ';
-                        }
-                    }
-
-                    $conn->close();
                 }
+
 
                 ?>
 

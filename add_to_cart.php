@@ -1,4 +1,8 @@
 <?php
+
+require('php/connect.php');
+require('auth_session.php');
+
 if (isset($_POST['addToCart'])) {
     $name =  $_POST['name'];
     $size =  $_POST['size'];

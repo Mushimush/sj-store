@@ -11,17 +11,9 @@
 
 <body>
     <?php
-    include 'php/connect.php';
-    include 'php/auth.php';
-    $res = "";
-    if (!isset($_SESSION['custId']) && isset($_POST['id']))
-        $res = "NOT_LOGGED_IN";
-    else if (isset($_SESSION['custId']) && isset($_POST['id'])) {
-        $id = $_POST['id'];
-        $uid = $_SESSION['custId'];
-    }
-
-    unset($_POST['id']); //as we don't want the product id to be the same if we reload the page
+    require('php/connect.php');
+    require('auth_session.php');
+    $privilege = $_SESSION['privilege'];
 
     ?>
 
@@ -32,38 +24,45 @@
                     <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
                 </a>
                 <div class="navlink">
-                    <a href="cataloge.html">All Products</a>
-                    <a href="cataloge.php">Apparels</a>
-                    <a href="cataloge.php">Footwear</a>
-                    <a href="cart.php">Cart</a>
-                    <div class="account">
-                        <a href="#" class="account-btn">
-                            <div>
-                                <?php
-                                if (isset($_SESSION['username']))
-                                    echo $_SESSION['username'];
-                                else
-                                    echo 'Account'
-                                ?>
-                            </div>
-                        </a>
-                        <div class="account-dropdown" style="height: 0; padding: 0;">
-                            <ul>
-                                <?php
-                                if (!isset($_SESSION['username'])) {
-                                    echo '
-                                <li class="modal-open-btn" data-target="login-modal">Login <hr/></li>
-                                <li class="modal-open-btn" data-target="signup-modal">Signup</li>
-                                ';
-                                } else {
-                                    echo '
-                                    <li style="margin-top:12px; cursor: pointer;"> <a href="php/logout.php" style="color:black;">logout</a></li>
-                                ';
-                                }
-                                ?>
-                                <ul>
+                    <div class="dropdown">
+                        <a href="cataloge.php">All Products</a>
+                    </div>
+                    <div class="dropdown">
+                        <a href="cataloge.php?productCategory=apparel">Apparels</a>
+                        <div class="dropdown-content">
+                            <a href="cataloge.php">Tees</a>
+                            <a href="cataloge.php">Shorts</a>
                         </div>
                     </div>
+                    <div class="dropdown">
+                        <a href="cataloge.php?productCategory=footwear" class="dropbtn">Footwear</a>
+                        <div class="dropdown-content">
+                            <a href="cataloge.php">2002R series</a>
+                            <a href="cataloge.php">NYC Marathon series </a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="cart.php">Cart</a>
+                    </div>
+                    <div class="dropdown">
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            $username = $_SESSION['username'];
+                            echo '<a href="index.php">' . $username . '</a>';
+                            // $privilege = 'admin'; // take away once sql side is solved
+                            if ($privilege == 'admin') {
+                                echo '<a href="admin.php">Admin</a>';
+                            }
+                            echo '<a href="logout.php">Logout</a>
+                        ';
+                        } else {
+                            echo '<a href="login.php">Login</a>';
+                        }
+
+                        ?>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -102,7 +101,7 @@
 
                         <?php
                         include 'php/connect.php';
-                        $query = "SELECT * from Size where productId='" . $_GET['productId'] . "'";
+                        $query = "SELECT * from Product where productId='" . $_GET['productId'] . "'";
                         $result = mysqli_query($conn, $query);
 
                         if ($result->num_rows > 0) {

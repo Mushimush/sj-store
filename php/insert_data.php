@@ -23,8 +23,8 @@ $sql .= "INSERT INTO CustomerDetails (accountId, fullName, email, phoneNumber, d
 VALUES ( (SELECT accountId from Account where username = 'test'), 'test', 'test@gmail.com', '83066382', '2000-08-01', '');";
 
 // insert Footwear
-$sql .= "INSERT INTO `Product` (name, price, category, stock, description, image)
-VALUES ( 'NYC Marathon Fuel Cell SC Elite V3', 329, 'footwear', 100, 
+$sql .= "INSERT INTO `Product` (name, price, category,color, size, stock, description, image)
+VALUES ( 'NYC Marathon Fuel Cell SC Elite V3', 329, 'footwear',Black,Small, 100, 
 'You push yourself to go the distance get the gear that helps you get the job done. the TCS New York City Marathon® FuelCell SC Elite V3 womens running shoes are built for marathon runners who never let up.',
 'res/product/ezgif-2-0a14c890e9.jpg');";
 

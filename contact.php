@@ -8,15 +8,16 @@
     <title>SJ STORE</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<?php require('php/connect.php');
-require('auth_session.php');
-
-$username = $_SESSION['username'];
-$privilege = $_SESSION['privilege'];
-
-?>
 
 <body>
+    <?php
+    require('php/connect.php');
+    require('auth_session.php');
+
+    $username = $_SESSION['username'];
+    $privilege = $_SESSION['privilege'];
+    ?>
+
     <div class="main">
         <div class="navbar">
             <a href="index.php">
@@ -64,22 +65,22 @@ $privilege = $_SESSION['privilege'];
 
             </div>
         </div>
-        <div id="main-body">
-            <div class="main-images">
-                <img src="res/MS237RCS_319_Hero.jpg" alt="banner1">
-                <h1 id="banner-desc">New arrivals </h1>
-                <a id="banner-button" href="cataloge.php">Shop now</a>
+        <div id="aboutus">
+            <div id="aboutusleft">
+                <h2>About us</h2>
+                <img src="res/coollogo_com-63181092.png" alt="">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est suscipit at, consectetur vero nam temporibus deleniti. Odio, pariatur delectus voluptates adipisci provident deserunt non doloribus accusamus necessitatibus incidunt nesciunt, optio nobis iusto eum beatae quam voluptas fugiat repellendus sit. Excepturi aliquam neque ullam explicabo dignissimos, illum eaque blanditiis a consequatur.</p>
             </div>
-            <div class="main-images">
-                <img src="res/URC30BA_728.jpg" alt="banner2">
-                <img src="res/IU_OutOfBound_2.jpg" alt="banner3">
+            <div id="aboutusright">
+                <h2>Contact us!</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, blanditiis.</p>
+                <h5>Other useful Links</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, mollitia consequatur! Dicta accusamus illum aut, cupiditate id odit officia illo!</p>
             </div>
-
-
         </div>
         <footer>
             <img src="res/coollogo_com-63181092.png" alt="logo">
-            <a href="contact.html">Contact us !</a>
+            <a href="">Contact us !</a>
 
         </footer>
     </div>
