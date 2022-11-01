@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SJ STORE</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admininsert.css">
 </head>
 <?php require('php/connect.php');
 require('auth_session.php');
@@ -64,56 +64,66 @@ $privilege = $_SESSION['privilege'];
             </div>
         </div>
         <div class="admin">
+
             <form action="insert_product.php" method="post">
-                <div class="insertcontainer">
+
+                <fieldset>
+                    <legend><span class="number">1</span> Product Details</legend>
+
                     <label for="productId">Product Id</label>
                     <input style="width: 400px;" type="number" name="productId" maxlength="30" size="100" required>
-                </div>
-                <div class="insertcontainer">
+
                     <label for="productName">Product Name</label>
                     <input style="width: 400px;" type="text" name="productName" maxlength="30" size="100" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productPrice">Product Price</label>
-                    <input style="width: 400px;" type="number" name="productPrice" maxlength="30" size="100" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productCat">Product Category</label>
-                    <input style="width: 400px;" type="text" name="productCat" maxlength="30" size="100" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productColor">Product Color</label>
-                    <input style="width: 400px;" type="text" name="productColor" maxlength="30" size="10000" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productSize">Product Size</label>
-                    <input style="width: 400px;" type="text" name="productSize" maxlength="30" size="100" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productStock">Product Stock</label>
-                    <input style="width: 400px;" type="number" name="productStock" maxlength="30" size="100" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productStock">Product Description</label>
-                    <input style="width: 400px;" type="text" name="productDescription" maxlength="30" size="100" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productimage">1st Product Image</label>
-                    <input style="width: 400px;" type="file" id="productimage" name="productimage" accept="image/png, image/jpeg" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productimage2">2nd Product Image</label>
-                    <input style="width: 400px;" type="file" id="productimage2" name="productimage2" accept="image/png, image/jpeg" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productimage3">2nd Product Image</label>
-                    <input style="width: 400px;" type="file" id="productimage3" name="productimage3" accept="image/png, image/jpeg" required>
-                </div>
-                <div class="insertcontainer">
-                    <label for="productimage4">2nd Product Image</label>
-                    <input style="width: 400px;" type="file" id="productimage4" name="productimage4" accept="image/png, image/jpeg" required>
 
-                </div>
+
+
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">2</span> Product Category</legend>
+                    <input id="Top" value="top" type="radio" name="productCat" maxlength="30" size="100" required><label for="Top" class="light">Top</label>
+                    <input id="Bottom" value="bottom" type="radio" name="productCat" maxlength="30" size="100" required><label for="Top" class="light">Bottom</label>
+                    <input id="Footwear" value="footwear" type="radio" name="productCat" maxlength="30" size="100" required><label for="Top" class="light">Footwear</label>
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">3</span> Product Sizing</legend>
+                    <input id="small" value="small" type="radio" name="productSize" required><label for="small" class="light">Small</label>
+                    <input id="medium" value="medium" type="radio" name="productSize" required><label for="medium" class="light">Medium</label>
+                    <input id="large" value="large" type="radio" name="productSize" required><label for="large" class="light">Large</label>
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">4</span> Product Colorways</legend>
+                    <input style="width: 400px;" type="text" name="productColor" maxlength="30" size="100" required>
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">5</span> Product Stock</legend>
+                    <input style="width: 400px;" type="number" name="productStock" maxlength="30" size="100" step="1" min="1" required>
+                </fieldset>
+                <fieldset>
+                    <legend><span class="number">6</span> Product Price</legend>
+                    <input style="width: 400px;" type="number" name="productPrice" maxlength="30" size="100" step="1" min="1" required>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend><span class="number">7</span> Product Description</legend>
+                    <label for="des">Description</label>
+                    <textarea id="des" name="productDescription"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend><span class="number">8</span> Product Images</legend>
+
+                    <input style="width: 400px;" type="file" id="productimage" name="productimage" accept="image/png, image/jpeg" required>
+
+                    <input style="width: 400px;" type="file" id="productimage2" name="productimage2" accept="image/png, image/jpeg" required>
+
+                    <input style="width: 400px;" type="file" id="productimage3" name="productimage3" accept="image/png, image/jpeg" required>
+
+                    <input style="width: 400px;" type="file" id="productimage4" name="productimage4" accept="image/png, image/jpeg" required>
+                </fieldset>
+
+
                 <button class="insertbtn" type="submit">
                     Insert
                 </button>

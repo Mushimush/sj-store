@@ -103,8 +103,8 @@
                             <div class="content">
                             <a href="product.php?productId=' . $row['productId'] . '">
                                 <img src=' . $row['image'] . '>
-                                <div class="product-name">' . $row['name'] . '</div>
-                               <div class="product-price">$' . $row['price'] . '</div>
+                                    <div class="product-name">' . $row['name'] . '</div>
+                                     <div class="product-price">$' . $row['price'] . '</div>
                             </a>
     
     
@@ -135,8 +135,11 @@
                         <div class="content">
                         <a href="product.php?productId=' . $row['productId'] . '">
                             <img src=' . $row['image'] . '>
+                            <div class="productdetails">
                             <div class="product-name">' . $row['name'] . '</div>
-                           <div class="product-price">$' . $row['price'] . '</div>
+                            <div class="product-price">$' . $row['price'] . '</div>
+                            </div>
+
                         </a>
 
 

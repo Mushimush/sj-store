@@ -95,7 +95,7 @@ $username = $_SESSION['username'];
             </div>
         </div>
         <div class="admin">
-            <table style="width:100%">
+            <table style="width:80%">
                 <tr>
                     <th>Image</th>
                     <th>Name</th>
@@ -124,8 +124,8 @@ $username = $_SESSION['username'];
                             <th>' . $row['size'] . '</th>
                             <th><input type="number" name="qty" value="' . $row['stock'] . '" min="1"></th>
                             <th>
-                            <a href="admin.php?action=delete&id=' . $id . '">Delete item</a>
-                            <button type="submit" name="update">Update</button>
+                            <a href="admin.php?action=delete&id=' . $id . '"><img id="deletebtn"  src="res/istockphoto-928418914-170667a.jpg" alt="Remove Item" /></a>
+                            <button id="updatebtn" type="submit" name="update"><img id="deletebtn"  src="res/reload_update_refresh_icon_143703 (1).png" alt="Update" /></button>
                             <input type="hidden" name="productID" value="' . $row['productindex'] . '" required/>
                             </th>
                         </tr>
@@ -136,9 +136,6 @@ $username = $_SESSION['username'];
                     }
                 }
                 ?>
-                <div class="adminbtncontainer ">
-                </div>
-
             </table>
 
         </div>

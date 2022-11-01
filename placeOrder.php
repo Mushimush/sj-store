@@ -30,6 +30,7 @@ foreach ($_SESSION["cart_items"] as $item) {
     $sql1 = "INSERT INTO OrderItems (orderId, productId, quantity, size, colors)
 VALUES ('$orderId', '$productId' , '$quantity', '$size', '$color')";
 
+
     $conn->query($sql1);
 }
 

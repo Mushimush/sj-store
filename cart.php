@@ -93,11 +93,11 @@
                     </div>
                     <div id="cartdesc">
                         <p id="cartitemname"> ' . $item["name"] . ' </p>
-                        <p>Quantity: ' . $item["qty"] . ' </p>
+                        <p>Quantity: <input type="number" step="1" min="1" value="' . $item["qty"] . '"> </p>
                         <p>Size: ' . $item["size"] . ' </p>
                         <p>Price:$ ' . $item["price"] . ' </p>
                         <p>Item total price $ ' . number_format($item["qty"] * $item["price"], 2) . ' </p>
-                        <a href="cart.php?action=remove&code=' . $key . '" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a>
+                        <a href="cart.php?action=remove&code=' . $key . '" class="btnRemoveAction"><img id="deletebtn"  src="res/istockphoto-928418914-170667a.jpg" alt="Remove Item" /></a>
 
                     </div>
                 </div>
