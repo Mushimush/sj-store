@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -93,7 +94,7 @@
                     </div>
                     <div id="cartdesc">
                         <p id="cartitemname"> ' . $item["name"] . ' </p>
-                        <p>Quantity: <input type="number" step="1" min="1" value="' . $item["qty"] . '"> </p>
+                        <p>Quantity: <input id="updateprice" type="number" step="1" min="1" value="' . $item["qty"] . '" onchange="updatePrice()"> </p> 
                         <p>Size: ' . $item["size"] . ' </p>
                         <p>Price:$ ' . $item["price"] . ' </p>
                         <p>Item total price $ ' . number_format($item["qty"] * $item["price"], 2) . ' </p>
@@ -108,6 +109,7 @@
             ?>
                 <div id="emptycart">
                     <h1>Your cart is empty</h1>
+                    <td><input class="form-control" type="number" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')" /></td>
                 </div>
             <?php
             }

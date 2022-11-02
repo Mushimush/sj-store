@@ -14,3 +14,8 @@ $(document).ready(function() {
         return false;
     });
 });
+
+function updatePrice(){
+    var price = document.getElementById("updateprice").value
+    document.getElementById("updateprice").value = price
+}

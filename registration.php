@@ -10,7 +10,6 @@
 <body>
     <?php
     require('php/connect.php');
-    require('auth_session.php');
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['username'])) {
         $privilege = $_REQUEST['privilege'];
@@ -39,12 +38,21 @@
         }
     } else {
     ?>
+        <img src="res/coollogo_com-63181092.png" alt="">
         <form class="form" action="" method="post">
             <h1 class="login-title">Registration</h1>
-            <label for="user">User</label>
-            <input type="radio" id="user" class="login-input" name="privilege" value="user" required>
-            <label for="user">Admin</label>
-            <input type="radio" id="admin" class="login-input" name="privilege" value="admin" required>
+            <div class="inputmax">
+                <div class="input">
+                    <label class="inputlabel" for="user">User</label>
+                    <input type="radio" id="user" class="login-input" name="privilege" value="user" required>
+                </div>
+                <div class="input">
+                    <label class="inputlabel" for="user">Admin</label>
+                    <input type="radio" id="admin" class="login-input" name="privilege" value="admin" required>
+                </div>
+
+            </div>
+
             <input type="text" class="login-input" name="username" placeholder="Username" required />
             <input type="text" class="login-input" name="email" placeholder="Email Adress">
             <input type="password" class="login-input" name="password" placeholder="Password">
