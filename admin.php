@@ -118,6 +118,9 @@ $username = $_SESSION['username'];
                             <a href="admin.php?action=delete&id=' . $id . '"><img id="deletebtn"  src="res/istockphoto-928418914-170667a.jpg" alt="Remove Item" /></a>
                             <input type="hidden" name="productID" value="' . $row['productindex'] . '" required/>
                             </th>
+                            <th>
+                            <button type="submit" name="update">Update</button>
+                            </th>
                         </tr>
                         </form>
 

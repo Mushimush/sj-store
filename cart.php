@@ -17,6 +17,11 @@
     $username = $_SESSION['username'];
     $privilege = $_SESSION['privilege'];
 
+    if (isset($_GET['update'])) {
+
+        $_SESSION["cart_items"][$_GET['productId']]['qty'] = $_GET['updateprice'];
+    }
+
     ?>
     <div class="main">
         <div class="navbar">
@@ -84,13 +89,18 @@
                     <img src=' . $item['image'] . '>
                     </div>
                     <div id="cartdesc">
+                        <form method="get" action="cart.php">
                         <p id="cartitemname"> ' . $item["name"] . ' </p>
-                        <p>Quantity: <input id="updateprice" type="number" step="1" min="1" value="' . $item["qty"] . '" onchange="updatePrice()"> </p> 
+                        <p>Quantity: <input id="updateprice" name="updateprice" type="number" step="1" min="1" value="' . $item["qty"] . '"> </p> 
+                        <input type="hidden" id="productId" name="productId" value="' . $item["productId"] . '" >
                         <p>Size: ' . $item["size"] . ' </p>
                         <p>Price:$ ' . $item["price"] . ' </p>
                         <p>Item total price $ ' . number_format($item["qty"] * $item["price"], 2) . ' </p>
-                        <a href="cart.php?action=remove&code=' . $key . '" class="btnRemoveAction"><img id="deletebtn"  src="res/istockphoto-928418914-170667a.jpg" alt="Remove Item" /></a>
-
+                        <div class="cartupdate">
+                             <button id="updatebtn" type="submit" name="update">Update</button>
+                             <a href="cart.php?action=remove&code=' . $key . '" class="btnRemoveAction"><img id="deletebtn"  src="res/istockphoto-928418914-170667a.jpg" alt="Remove Item" /></a>
+                        </div>      
+                        </form>
                     </div>
                 </div>
  

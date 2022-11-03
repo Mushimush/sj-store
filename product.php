@@ -19,43 +19,43 @@
 
     <div class="catalogue">
         <div class="main">
-        <div class="navbar">
-            <a href="index.php">
-                <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
-            </a>
-            <div class="navlink">
-                <div class="dropdown">
-                    <a href="cataloge.php">All Products</a>
-                    <div class="dropdown-content">
-                        <a href="cataloge.php?productCategory=footwear">Footwear</a>
-                        <a href="cataloge.php?productCategory=top">Top</a>
-                        <a href="cataloge.php?productCategory=bottom">Bottom</a>
+            <div class="navbar">
+                <a href="index.php">
+                    <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
+                </a>
+                <div class="navlink">
+                    <div class="dropdown">
+                        <a href="cataloge.php">All Products</a>
+                        <div class="dropdown-content">
+                            <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                            <a href="cataloge.php?productCategory=top">Top</a>
+                            <a href="cataloge.php?productCategory=bottom">Bottom</a>
+                        </div>
                     </div>
-                </div>
-                <div class="dropdown">
-                    <a href="cart.php">Cart</a>
-                </div>
-                <div class="dropdown">
-                    <?php
-                    if (isset($_SESSION['username'])) {
-                        $username = $_SESSION['username'];
-                        echo '<a href="index.php">' . $username . '</a>';
-                        // $privilege = 'admin'; // take away once sql side is solved
-                        if ($privilege == 'admin') {
-                            echo '<a href="admin.php">Admin</a>';
-                        }
-                        echo '<a href="logout.php">Logout</a>
+                    <div class="dropdown">
+                        <a href="cart.php">Cart</a>
+                    </div>
+                    <div class="dropdown">
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            $username = $_SESSION['username'];
+                            echo '<a href="index.php">' . $username . '</a>';
+                            // $privilege = 'admin'; // take away once sql side is solved
+                            if ($privilege == 'admin') {
+                                echo '<a href="admin.php">Admin</a>';
+                            }
+                            echo '<a href="logout.php">Logout</a>
                         ';
-                    } else {
-                        echo '<a href="login.php">Login</a>';
-                    }
+                        } else {
+                            echo '<a href="login.php">Login</a>';
+                        }
 
-                    ?>
+                        ?>
+
+                    </div>
 
                 </div>
-
             </div>
-        </div>
         </div>
 
         <div class="productbody">
@@ -88,24 +88,25 @@
             <div id="leftproduct">
                 <form method="post" action="add_to_cart.php">
                     <div class="selection">
-                        <p>Please select size:</p>
+                        <h3 id="productname"><?php echo $name  ?></h1>
+                            <p>Please select size:</p>
 
-                        <?php
-                        include 'php/connect.php';
-                        $query = "SELECT * from Product where productId='" . $_GET['productId'] . "'";
-                        $result = mysqli_query($conn, $query);
+                            <?php
+                            include 'php/connect.php';
+                            $query = "SELECT * from Product where productId='" . $_GET['productId'] . "'";
+                            $result = mysqli_query($conn, $query);
 
-                        if ($result->num_rows > 0) {
-                            // output data of each row
-                            while ($row = $result->fetch_assoc()) {
-                                echo '
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '
                                 <input name="size" type="radio" id="color" value="' . $row['size'] . '">
                                 <label name="size" for="black">' . $row['size'] . '</label>
                             ';
+                                }
                             }
-                        }
-                        $result->free_result();
-                        ?>
+                            $result->free_result();
+                            ?>
                     </div>
                     <div class="selection">
                         <h4 id="colortext">Color:

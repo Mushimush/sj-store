@@ -39,6 +39,8 @@ CREATE TABLE `OrderItems`
     orderId int UNSIGNED,
     productId int UNSIGNED,
     quantity int,
+    size varchar(50)
+    colors varchar(50)
     FOREIGN KEY (orderId)
         REFERENCES `Order`(orderId),
 );

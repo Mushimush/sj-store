@@ -18,7 +18,7 @@ if (isset($_POST['addToCart'])) {
     //session_destroy();
 
 
-    $_SESSION['cart_items'][] = [
+    $_SESSION['cart_items'][$productId] = [
         'size' => $size,
         'color' => $color,
         'qty' => $quantity,

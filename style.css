@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=League+Gothic&family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=Inconsolata&family=League+Gothic&family=Quicksand:wght@300&display=swap');
+
 /* Header */
 
 .main {
@@ -205,6 +207,10 @@ footer a {
 
 /* product */
 
+#productname {
+    margin-bottom:50px;
+}
+
 .productbody {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -320,8 +326,11 @@ input{
 
 }
 #deletebtn {
+    margin: 0;
+    padding: 0;
+    margin-left: 20px;
     width: auto;
-    height: 50px;
+    height: 80px;
 }
 .cartitem img {
     width: auto;
@@ -346,6 +355,28 @@ input{
     
 
 }
+#updatebtn {
+    width: 100px;
+    text-align: center;
+    margin-left: 10px;
+    padding: 20px;
+
+}
+
+.cartupdate {
+    display: flex;
+
+}
+
+/*Payment*/
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 500px;
+}
 
 #paymentbutton {
     padding: 20px;
@@ -368,6 +399,12 @@ input{
     padding: 1em 1.5em;
     text-decoration: none;
     text-align: center;
+
+}
+#paymenttext {
+    font-family: 'Bona Nova', serif;
+    font-style: italic;
+
 
 }
 
@@ -499,6 +536,3 @@ input{
     box-sizing: border-box;
 
 }
-
-
-/* Modal */

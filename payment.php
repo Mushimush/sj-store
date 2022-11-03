@@ -67,14 +67,11 @@
             </div>
         </div>
         <div class="payment">
+            <h1 id="paymenttext">Hello, <?php echo $username ?> ,where do we ship these to?</h1>
             <form method="post" action="placeOrder.php">
                 <table class="customer-details-table">
                     <?php
                     echo '          
-                 <tr>
-                <td class="label">Full Name</td>
-                <td> <input id="placeorderinput" type="text" placeholder="Your full name" value="' . $username . '" required/> </td>
-                 </tr>
                 <tr>
                 <td class="label">Email</td>
                 <td> <input id="placeorderinput" type="email" placeholder="Your email address" name="email" value="" required/> </td>
