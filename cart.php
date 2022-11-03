@@ -29,14 +29,22 @@
                 <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
             </a>
             <div class="navlink">
+
                 <div class="dropdown">
                     <a href="cataloge.php">All Products</a>
                     <div class="dropdown-content">
                         <a href="cataloge.php?productCategory=footwear">Footwear</a>
                         <a href="cataloge.php?productCategory=top">Top</a>
                         <a href="cataloge.php?productCategory=bottom">Bottom</a>
+
                     </div>
                 </div>
+                <div class="dropdown">
+                    <a href="cataloges.php">Best Selling</a>
+
+
+                </div>
+
                 <div class="dropdown">
                     <a href="cart.php">Cart</a>
                 </div>
@@ -125,7 +133,8 @@
 
         <footer>
             <img src="res/coollogo_com-63181092.png" alt="logo">
-            <a href="">Contact us !</a>
+            <a href="aboutus.php">Contact us !</a>
+
 
         </footer>
     </div>

@@ -536,3 +536,8 @@ input{
     box-sizing: border-box;
 
 }
+
+/*about us page*/
+#cartpage {
+    margin-bottom: 650px;
+}

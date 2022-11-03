@@ -27,14 +27,22 @@
                     <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
                 </a>
                 <div class="navlink">
+
                     <div class="dropdown">
                         <a href="cataloge.php">All Products</a>
                         <div class="dropdown-content">
                             <a href="cataloge.php?productCategory=footwear">Footwear</a>
                             <a href="cataloge.php?productCategory=top">Top</a>
                             <a href="cataloge.php?productCategory=bottom">Bottom</a>
+
                         </div>
                     </div>
+                    <div class="dropdown">
+                        <a href="cataloges.php">Best Selling</a>
+
+
+                    </div>
+
                     <div class="dropdown">
                         <a href="cart.php">Cart</a>
                     </div>
@@ -64,7 +72,6 @@
             <nav class="sidebar">
                 <h4>Filter</h4>
                 <a href="catalogee.php">Price</a>
-                <a href="cataloges.php">Best Selling</a>
             </nav>
             <div class="catalogue-items">
                 <?php
@@ -105,16 +112,18 @@
                         }
                     }
                 } else {
-                    $sql = "SELECT p.* 
-                FROM Product as `p`
-                inner join
-                (
-                   select `productId`, MIN(`productindex`) as `productindex`
-                   from Product
-                   group by `productId`
-                   having MIN(`productindex`)
-                ) as `x`
-                on `x`.`productId` = `p`.`productId` and `x`.`productindex` = `p`.`productindex`";
+                    // $sql = "SELECT p.* 
+                    // FROM Product as `p` 
+                    // inner join
+                    // (   
+                    //    select `productId`, MIN(`productindex`) as `productindex`
+                    //    from OrderItems
+                    //    group by `productId`
+                    //    having MIN(`productindex`)
+                    // ) as `x`
+                    // on `x`.`productId` = `p`.`productId` and `x`.`productindex` = `p`.`productindex` ";
+                    $sql = "SELECT * from Product
+                    inner join OrderItems ON Product.productId = OrderItems.productId where Product.size = OrderItems.size and Product.color = OrderItems.colors";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -149,7 +158,8 @@
 
         <footer>
             <img src="res/coollogo_com-63181092.png" alt="logo">
-            <a href="">Contact us !</a>
+            <a href="aboutus.php">Contact us !</a>
+
 
         </footer>
 
