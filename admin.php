@@ -55,19 +55,10 @@ $username = $_SESSION['username'];
             <div class="navlink">
                 <div class="dropdown">
                     <a href="cataloge.php">All Products</a>
-                </div>
-                <div class="dropdown">
-                    <a href="cataloge.php?productCategory=apparel">Apparels</a>
                     <div class="dropdown-content">
-                        <a href="cataloge.php">Tees</a>
-                        <a href="cataloge.php">Shorts</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="cataloge.php?productCategory=footwear" class="dropbtn">Footwear</a>
-                    <div class="dropdown-content">
-                        <a href="cataloge.php">2002R series</a>
-                        <a href="cataloge.php">NYC Marathon series </a>
+                        <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                        <a href="cataloge.php?productCategory=top">Top</a>
+                        <a href="cataloge.php?productCategory=bottom">Bottom</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -118,14 +109,13 @@ $username = $_SESSION['username'];
                         <tr>
                             <th><img id="adminimage" src="' . $row['image'] . '" alt=""></th>
                             <th>' . $row['name'] . '</th>
-                            <th><input type="number" name="price" value="' . $row['price'] . '" step=".01" min="1"></th>
+                            <th><input type="number" name="price" value="' . $row['price'] . '" step="1" min="1"></th>
                             <th>' . $row['category'] . '</th>
                             <th>' . $row['color'] . '</th>
                             <th>' . $row['size'] . '</th>
-                            <th><input type="number" name="qty" value="' . $row['stock'] . '" min="1"></th>
+                            <th><input type="number" name="qty" value="' . $row['stock'] . '" step="1" min="1"></th>
                             <th>
                             <a href="admin.php?action=delete&id=' . $id . '"><img id="deletebtn"  src="res/istockphoto-928418914-170667a.jpg" alt="Remove Item" /></a>
-                            <button id="updatebtn" type="submit" name="update"><img id="deletebtn"  src="res/reload_update_refresh_icon_143703 (1).png" alt="Update" /></button>
                             <input type="hidden" name="productID" value="' . $row['productindex'] . '" required/>
                             </th>
                         </tr>
@@ -137,6 +127,12 @@ $username = $_SESSION['username'];
                 }
                 ?>
             </table>
+
+        </div>
+        <div class="adminbtncontainer ">
+            <a href="cart.php">
+                Update!
+            </a>
 
         </div>
         <div class="adminbtncontainer ">

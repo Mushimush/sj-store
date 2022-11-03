@@ -24,19 +24,10 @@ $privilege = $_SESSION['privilege'];
             <div class="navlink">
                 <div class="dropdown">
                     <a href="cataloge.php">All Products</a>
-                </div>
-                <div class="dropdown">
-                    <a href="cataloge.php?productCategory=apparel">Apparels</a>
                     <div class="dropdown-content">
-                        <a href="cataloge.php">Tees</a>
-                        <a href="cataloge.php">Shorts</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="cataloge.php?productCategory=footwear" class="dropbtn">Footwear</a>
-                    <div class="dropdown-content">
-                        <a href="cataloge.php">2002R series</a>
-                        <a href="cataloge.php">NYC Marathon series </a>
+                        <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                        <a href="cataloge.php?productCategory=top">Top</a>
+                        <a href="cataloge.php?productCategory=bottom">Bottom</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -112,15 +103,16 @@ $privilege = $_SESSION['privilege'];
                 </fieldset>
 
                 <fieldset>
+
                     <legend><span class="number">8</span> Product Images</legend>
 
-                    <input style="width: 400px;" type="file" id="productimage" name="productimage" accept="image/png, image/jpeg" required>
+                    <input id="fileUpload" style="width: 400px;" type="file" id="productimage" name="productimage" accept="image/png, image/jpeg" required>
 
-                    <input style="width: 400px;" type="file" id="productimage2" name="productimage2" accept="image/png, image/jpeg" required>
+                    <input id="fileUpload" style="width: 400px;" type="file" id="productimage2" name="productimage2" accept="image/png, image/jpeg" required>
 
-                    <input style="width: 400px;" type="file" id="productimage3" name="productimage3" accept="image/png, image/jpeg" required>
+                    <input id="fileUpload" style="width: 400px;" type="file" id="productimage3" name="productimage3" accept="image/png, image/jpeg" required>
 
-                    <input style="width: 400px;" type="file" id="productimage4" name="productimage4" accept="image/png, image/jpeg" required>
+                    <input id="fileUpload" style="width: 400px;" type="file" id="productimage4" name="productimage4" accept="image/png, image/jpeg" required>
                 </fieldset>
 
 
@@ -130,6 +122,15 @@ $privilege = $_SESSION['privilege'];
 
 
             </form>
+            <script type="text/javascript">
+                $(function() {
+                    $('#fileUpload').on('change', function() {
+                        var filePath = $(this).val();
+                        console.log(filePath);
+                    });
+                });
+            </script>
+            </script>
 
 
         </div>
@@ -141,5 +142,6 @@ $privilege = $_SESSION['privilege'];
         </footer>
     </div>
 </body>
+
 
 </html>

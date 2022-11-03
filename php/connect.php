@@ -3,8 +3,8 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "sjstore";
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 // Create connection
 //$conn = mysqli_connect($servername, $username, $password, $dbname);

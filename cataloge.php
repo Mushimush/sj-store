@@ -29,19 +29,10 @@
                 <div class="navlink">
                     <div class="dropdown">
                         <a href="cataloge.php">All Products</a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="cataloge.php?productCategory=apparel">Apparels</a>
                         <div class="dropdown-content">
-                            <a href="cataloge.php">Tees</a>
-                            <a href="cataloge.php">Shorts</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="cataloge.php?productCategory=footwear" class="dropbtn">Footwear</a>
-                        <div class="dropdown-content">
-                            <a href="cataloge.php">2002R series</a>
-                            <a href="cataloge.php">NYC Marathon series </a>
+                            <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                            <a href="cataloge.php?productCategory=top">Top</a>
+                            <a href="cataloge.php?productCategory=bottom">Bottom</a>
                         </div>
                     </div>
                     <div class="dropdown">

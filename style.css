@@ -107,7 +107,6 @@
 footer {
     display: flex;
     gap: 200px;
-    /* margin-top: 500px; */
 }
 footer img {
     width: auto;
@@ -311,6 +310,7 @@ input{
     margin-left: 100px;
     padding: 20px;
     gap: 30px;
+    margin-bottom: 500px;
     
 
 }
@@ -446,19 +446,14 @@ input{
     width: auto;
     height: 200px;
 }
-.adminupdate {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+
 .adminbtncontainer {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    margin-bottom: 20px;
+
 
 }
 .adminbtncontainer a {
