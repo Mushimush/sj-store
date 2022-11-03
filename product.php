@@ -130,6 +130,7 @@
                         <input type="hidden" name="name" value="<?= $name; ?>">
 
                     </div>
+                    <input type="hidden" name="uniquekey" id="uniquekey">
 
                     <div class="selection">
                         <div align="center"><button id="addtocartbtn" type="submit" name="addToCart" class="add_to_cart">Add to cart</button></div>
@@ -149,5 +150,9 @@
         </footer>
     </div>
 </body>
+<script>
+    var key = Math.random()
+    document.getElementById("uniquekey").value = key
+</script>
 
 </html>

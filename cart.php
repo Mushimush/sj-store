@@ -19,7 +19,7 @@
 
     if (isset($_GET['update'])) {
 
-        $_SESSION["cart_items"][$_GET['productId']]['qty'] = $_GET['updateprice'];
+        $_SESSION["cart_items"][$_GET['uniquekey']]['qty'] = $_GET['updateprice'];
     }
 
     ?>
@@ -92,7 +92,7 @@
                         <form method="get" action="cart.php">
                         <p id="cartitemname"> ' . $item["name"] . ' </p>
                         <p>Quantity: <input id="updateprice" name="updateprice" type="number" step="1" min="1" value="' . $item["qty"] . '"> </p> 
-                        <input type="hidden" id="productId" name="productId" value="' . $item["productId"] . '" >
+                        <input type="hidden" id="uniquekey" name="uniquekey" value="' . $item["uniquekey"] . '" >
                         <p>Size: ' . $item["size"] . ' </p>
                         <p>Price:$ ' . $item["price"] . ' </p>
                         <p>Item total price $ ' . number_format($item["qty"] * $item["price"], 2) . ' </p>
