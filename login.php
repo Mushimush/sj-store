@@ -23,7 +23,7 @@
         $result = mysqli_query($conn, $query);
         $rows = mysqli_num_rows($result);
         $user = $result->fetch_assoc();
-
+        
         if ($rows == 1) {
             // echo $user['privilege'];
             //exit;
@@ -39,7 +39,7 @@
         }
     } else {
     ?>
-        <img src="res/coollogo_com-63181092.png" alt="">
+        <img src="res/SJLOGO.jpg" alt="" width="150">
         <form class="form" method="post" name="login">
             <h1 class="login-title">Login</h1>
             <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true" />
