@@ -1,7 +1,7 @@
 CREATE TABLE `users` 
 (   id int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     privilege varchar(50) NOT NULL,
-    email int varchar(50), 
+    email varchar(50), 
     username varchar(50) NOT NULL UNIQUE,
     password varchar(50) NOT NULL,
     create_datetime DATETIME
@@ -30,7 +30,7 @@ CREATE TABLE `Order`
     username varchar(50),
     email varchar(100), 
     purchasedDate date,
-    totalAmount float(16,2),
+    totalAmount float(16,2)
 );
 
 CREATE TABLE `OrderItems` 
@@ -39,10 +39,10 @@ CREATE TABLE `OrderItems`
     orderId int UNSIGNED,
     productId int UNSIGNED,
     quantity int,
-    size varchar(50)
-    colors varchar(50)
+    size varchar(50),
+    colors varchar(50),
     FOREIGN KEY (orderId)
-        REFERENCES `Order`(orderId),
+        REFERENCES `Order`(orderId)
 );
 
 

@@ -31,60 +31,50 @@
     <div class="main">
         <div class="navbar">
             <a href="index.php">
-                <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
+                <img src="res/SJLOGO.jpg" alt="shiba-logo">
             </a>
-            <div class="navbar">
-                <a href="index.php">
-                    <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
-                </a>
-                <div class="navlink">
-
-                    <div class="dropdown">
-                        <a href="cataloge.php">All Products</a>
-                        <div class="dropdown-content">
-                            <a href="cataloge.php?productCategory=footwear">Footwear</a>
-                            <a href="cataloge.php?productCategory=top">Top</a>
-                            <a href="cataloge.php?productCategory=bottom">Bottom</a>
-
-                        </div>
+            <div class="navlink">
+                <div class="dropdown">
+                    <a href="cataloge.php">All Products</a>
+                    <div class="dropdown-content">
+                        <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                        <a href="cataloge.php?productCategory=top">Top</a>
+                        <a href="cataloge.php?productCategory=bottom">Bottom</a>
                     </div>
-                    <div class="dropdown">
-                        <a href="cataloges.php">Best Selling</a>
-
-
-                    </div>
-
-                    <div class="dropdown">
-                        <a href="cart.php">Cart</a>
-                    </div>
-                    <div class="dropdown">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            $username = $_SESSION['username'];
-                            echo '<a href="index.php">' . $username . '</a>';
-                            // $privilege = 'admin'; // take away once sql side is solved
-                            if ($privilege == 'admin') {
-                                echo '<a href="admin.php">Admin</a>';
-                            }
-                            echo '<a href="logout.php">Logout</a>
-                        ';
-                        } else {
-                            echo '<a href="login.php">Login</a>';
+                </div>
+                <div class="dropdown">
+                    <a href="cart.php">Cart</a>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        $username = $_SESSION['username'];
+                        echo '<a href="index.php">' . $username . '</a>';
+                        // $privilege = 'admin'; // take away once sql side is solved
+                        if ($privilege == 'admin') {
+                            echo '<a href="admin.php">Admin</a>';
                         }
+                        echo '<a href="logout.php">Logout</a>
+                        ';
+                    } else {
+                        echo '<a href="login.php">Login</a>';
+                    }
 
-                        ?>
-
-                    </div>
+                    ?>
 
                 </div>
+
             </div>
         </div>
         <div class="payment">
-            <h1 id="paymenttext">Hello, <?php echo $username ?> ,where do we ship these to?</h1>
             <form method="post" action="placeOrder.php">
                 <table class="customer-details-table">
                     <?php
                     echo '          
+                 <tr>
+                <td class="label">Full Name</td>
+                <td> <input id="placeorderinput" type="text" placeholder="Your full name" value="' . $username . '" required/> </td>
+                 </tr>
                 <tr>
                 <td class="label">Email</td>
                 <td> <input id="placeorderinput" type="email" placeholder="Your email address" name="email" value="" required/> </td>
@@ -109,9 +99,8 @@
             </form>
         </div>
         <footer>
-            <img src="res/coollogo_com-63181092.png" alt="logo">
-            <a href="aboutus.php">Contact us !</a>
-
+            <img src="res/SJLOGO.jpg" alt="logo">
+            <a href="">Contact us !</a>
 
         </footer>
     </div>

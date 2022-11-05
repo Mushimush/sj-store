@@ -16,12 +16,10 @@
 
     $username = $_SESSION['username'];
     $privilege = $_SESSION['privilege'];
-
     ?>
-    <div class="main">
-        <div class="navbar">
+<div class="navbar">
             <a href="index.php">
-                <img src="res/SJLOGO.jpg" alt="shiba-logo">
+                <img src="res/SJLOGO.jpg" alt="SJlogo">
             </a>
             <div class="navlink">
                 <div class="dropdown">
@@ -38,37 +36,44 @@
                 <div class="dropdown">
                     <?php
                     if (isset($_SESSION['username'])) {
+                        if ($privilege == 'admin'){
+                            echo '<a href="admin.php">Admin</a>';
+                        } else{
                         $username = $_SESSION['username'];
                         echo '<a href="index.php">' . $username . '</a>';
-                        // $privilege = 'admin'; // take away once sql side is solved
-                        if ($privilege == 'admin') {
-                            echo '<a href="admin.php">Admin</a>';
                         }
-                        echo '<a href="logout.php">Logout</a>
-                        ';
+                    }
+                    ?>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        echo '<a href="logout.php">Logout</a>';
                     } else {
                         echo '<a href="login.php">Login</a>';
                     }
-
                     ?>
-
                 </div>
-
             </div>
         </div>
-        <div id="cartpage">
-            <div id="cartleft">
-                <?php include 'product_table.php'; ?>
+    <div class="main">
+        <div id="aboutus">
+            <div id="aboutusleft">
+                <h2>About us</h2>
+                <img src="res/SJ.jpg" alt="">
+                <p>Hi and welcome to SJ store!! We thank you for browsing around and purchasing our products. <br>We are a 2 young and wild kids who have a PASSION FOR FASHION which lead us to creating this online store . <br>Feel free to contact us if neccesary!</p>
             </div>
-            <div id="cartright">
+            <div id="aboutusright">
                 <h2>Contact us!</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, blanditiis.</p>
-                <h5>Other useful Links</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, mollitia consequatur! Dicta accusamus illum aut, cupiditate id odit officia illo!</p>
+                <p>Hotline: <br>1800-5522-2525</p>
+                <p>Email: <br><a href="SJstore@sj.com">SJstore@sj.com</a></p>
+                <h2>Other useful Links</h2>
+                <a href="https://www.ntu.edu.sg/">NTU</a>
+                <a href="404.html">:)</a>
             </div>
         </div>
         <footer>
-            <img src="res/SJLOGO.jpg" alt="logo">
+            <img src="res/SJLOGO.jpg" alt="SJlogo">
             <a href="">Contact us !</a>
 
         </footer>
