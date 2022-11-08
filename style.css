@@ -1,36 +1,53 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=League+Gothic&family=Quicksand:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=Inconsolata&family=League+Gothic&family=Quicksand:wght@300&display=swap');
-
 /* Header */
 
 .main {
     display: flex;
     flex-direction: column;
-
+}
+.notfound {
+    display: flex;
+    flex-direction: column;
+}
+.notfound a {
+    text-align: center;
+    text-size-adjust: 50px;
+    padding-top: 50px;
+}
+.notfound img{
+    height: 450px;
+    width: 750px;
+    padding-top: 200px;
+    margin: auto;
 }
 .navbar {
     display: flex;
     align-content: flex-start;
-    gap: 200px;
+    gap: 300px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
 }
 .navlink {
     display: flex;
-    padding: 0px 100px 10px 10px;
-    margin-top: 50px;
+    gap: 150px;
+    margin-top: 40px;
 
 }
 .navbar img {
     width: auto;
     height: 100px;
-    padding: 20px;
+    padding: 0px;
 }
  .navlink a {
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    margin-top: 50px;
+    font-size: 20px;
+    margin-top: 0px;
     font-family: 'Rubik', sans-serif;
+    color: #0b1f33;
 } 
 
 /* Style The Dropdown Button */
@@ -42,7 +59,7 @@
   
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
-    background-color: #ccccff;
+    background-color: #000000;
     display: none;
     position: absolute;
     min-width: 160px;
@@ -52,13 +69,19 @@
   
   /* Links inside the dropdown */
   .dropdown-content a {
-    color: black;
+    color: #ffffff;
     text-decoration: none;
     display: block;
     padding: 10px;
     margin: 0;
   }
-  .dropdown-content a:hover {background-color: #cc99ff}
+  .dropdown-content a:hover {
+    background-color: #ffffff;
+    color: #000000;
+    animation: scale;
+  }
+    
+
 
   
   /* Show the dropdown menu on hover */
@@ -84,7 +107,7 @@
 }
 .main-images {
     position: relative;
-    padding: 50px;
+    
 }
 #banner-desc {
     font-family: 'Rubik', sans-serif;
@@ -123,6 +146,7 @@ footer a {
     margin-right: 40px;
     margin-top: 50px;
     font-family: 'Rubik', sans-serif;
+    color: #0b1f33;
 
 }
 
@@ -134,25 +158,27 @@ footer a {
 .sidebar {
     display: flex;
     flex-direction: column;
-    font-family: 'Rubik', sans-serif;    padding: 10px;
-    padding: 30px;
+    font-family: 'Rubik', sans-serif;
+    padding: 20px;
+    border-right: 1px solid #000000;
 }
 .sidebar h4 {
     margin: 50px;
 }
 .sidebar a {
     margin: 50px;
+    text-decoration: none;
 }
 .catalogue-items {
     display: grid;
-    grid-template-columns: 500px 500px 500px;
+    grid-template-columns: 400px 400px 400px;
 }
 .catalogue-content {
     display: block;
 }
 .catalogue-content img {
     width: auto;
-    height: 400px;
+    height: 300px;
 }
 .content {
     display: flex;
@@ -160,6 +186,13 @@ footer a {
     align-items: center;
     justify-content: center;
     margin: 100px;
+    font-size: small;
+    text-align: center;
+}
+.content a {
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
 }
 
 .btn {
@@ -207,15 +240,21 @@ footer a {
 
 /* product */
 
-#productname {
-    margin-bottom:50px;
-}
-
 .productbody {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "right left" ;
     padding: 50px;
+}
+.product-name {
+    color: #212529;
+    text-decoration: none;
+
+}
+.product-price {
+    color: #212529;
+    text-decoration: none;
+
 }
 #rightproduct {
     grid-area: right;
@@ -244,8 +283,8 @@ footer a {
     align-items: center;
     justify-content: center;
     font-family: 'Rubik', sans-serif;
-    font-style: none;
-    font-style: italic;
+    font-style: normal;
+    text-decoration: none;
 }
 
 
@@ -326,11 +365,8 @@ input{
 
 }
 #deletebtn {
-    margin: 0;
-    padding: 0;
-    margin-left: 20px;
     width: auto;
-    height: 80px;
+    height: 50px;
 }
 .cartitem img {
     width: auto;
@@ -351,31 +387,10 @@ input{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 400px;
 
     
 
-}
-#updatebtn {
-    width: 100px;
-    text-align: center;
-    margin-left: 10px;
-    padding: 20px;
-
-}
-
-.cartupdate {
-    display: flex;
-
-}
-
-/*Payment*/
-
-.payment {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 500px;
 }
 
 #paymentbutton {
@@ -401,12 +416,6 @@ input{
     text-align: center;
 
 }
-#paymenttext {
-    font-family: 'Bona Nova', serif;
-    font-style: italic;
-
-
-}
 
 
 /* about us */
@@ -420,15 +429,24 @@ input{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    border-right: 1px solid #000000;
+    margin-top: 100px;
+    margin-left: 50px;
+    padding-right: 50px;
+    font-family: 'Rubik', sans-serif;
 }
 #aboutusleft img {
-    height: auto;
-    width: 472px;
+    height: 450px;
+    width: 750px;
+    position: relative;
 }
 #aboutusright {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 100px;
+    padding-left: 50px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .payment {
@@ -537,7 +555,5 @@ input{
 
 }
 
-/*about us page*/
-#cartpage {
-    margin-bottom: 650px;
-}
+
+/* Modal */

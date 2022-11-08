@@ -7,71 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
-    <title>Document</title>
+    <title>SJ STORE</title>
 </head>
 
 <body>
     <?php
     require('php/connect.php');
     require('auth_session.php');
-    $productCategory = $_GET['productCategory'];
-
+    //$productCategory = $_GET['productCategory'];
+    if (isset($_GET['productCategory'])) {
+        $productCategory = $_GET['productCategory'];
+    }
     $username = $_SESSION['username'];
     $privilege = $_SESSION['privilege'];
 
     ?>
-    <div class="catalogue">
-        <div class="main">
             <div class="navbar">
                 <a href="index.php">
-                    <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
+                    <img src="res/SJLOGO.jpg" alt="SJlogo">
                 </a>
                 <div class="navlink">
-
-                    <div class="dropdown">
-                        <a href="cataloge.php">All Products</a>
-                        <div class="dropdown-content">
-                            <a href="cataloge.php?productCategory=footwear">Footwear</a>
-                            <a href="cataloge.php?productCategory=top">Top</a>
-                            <a href="cataloge.php?productCategory=bottom">Bottom</a>
-
-                        </div>
+                <div class="dropdown">
+                    <a href="cataloge.php">All Products</a>
+                    <div class="dropdown-content">
+                        <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                        <a href="cataloge.php?productCategory=top">Top</a>
+                        <a href="cataloge.php?productCategory=bottom">Bottom</a>
                     </div>
-                    <div class="dropdown">
-                        <a href="cataloges.php">Best Selling</a>
-
-
-                    </div>
-
-                    <div class="dropdown">
-                        <a href="cart.php">Cart</a>
-                    </div>
-                    <div class="dropdown">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            $username = $_SESSION['username'];
-                            echo '<a href="index.php">' . $username . '</a>';
-                            // $privilege = 'admin'; // take away once sql side is solved
-                            if ($privilege == 'admin') {
-                                echo '<a href="admin.php">Admin</a>';
-                            }
-                            echo '<a href="logout.php">Logout</a>
-                        ';
-                        } else {
-                            echo '<a href="login.php">Login</a>';
+                </div>
+                <div class="dropdown">
+                    <a href="cart.php">Cart</a>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        if ($privilege == 'admin'){
+                            echo '<a href="admin.php">Admin</a>';
+                        } else{
+                        $username = $_SESSION['username'];
+                        echo '<a href="index.php">' . $username . '</a>';
                         }
-
-                        ?>
-
-                    </div>
-
+                    }
+                    ?>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        echo '<a href="logout.php">Logout</a>';
+                    } else {
+                        echo '<a href="login.php">Login</a>';
+                    }
+                    ?>
                 </div>
             </div>
-        </div>
+            </div>
+    <div class="catalogue">
         <div class="catalogue-body">
             <nav class="sidebar">
                 <h4>Filter</h4>
                 <a href="catalogee.php">Price</a>
+                <a href="cataloges.php">Best Selling</a>
             </nav>
             <div class="catalogue-items">
                 <?php
@@ -112,18 +107,16 @@
                         }
                     }
                 } else {
-                    // $sql = "SELECT p.* 
-                    // FROM Product as `p` 
-                    // inner join
-                    // (   
-                    //    select `productId`, MIN(`productindex`) as `productindex`
-                    //    from OrderItems
-                    //    group by `productId`
-                    //    having MIN(`productindex`)
-                    // ) as `x`
-                    // on `x`.`productId` = `p`.`productId` and `x`.`productindex` = `p`.`productindex` ";
-                    $sql = "SELECT * from Product
-                    inner join OrderItems ON Product.productId = OrderItems.productId where Product.size = OrderItems.size and Product.color = OrderItems.colors";
+                    $sql = "SELECT p.* 
+                FROM Product as `p`
+                inner join
+                (
+                   select `productId`, MIN(`productindex`) as `productindex`
+                   from Product
+                   group by `productId`
+                   having MIN(`productindex`)
+                ) as `x`
+                on `x`.`productId` = `p`.`productId` and `x`.`productindex` = `p`.`productindex`";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -157,9 +150,8 @@
         </div>
 
         <footer>
-            <img src="res/coollogo_com-63181092.png" alt="logo">
-            <a href="aboutus.php">Contact us !</a>
-
+            <img src="res/SJLOGO.jpg" alt="logo">
+            <a href="">Contact us !</a>
 
         </footer>
 

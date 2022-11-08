@@ -22,16 +22,21 @@ if (mysqli_affected_rows($conn) > 0) {
     $success = 'true';
 
     //send email
-    $to      = 'sjstore@localhost';
-    $subject = 'Your Order is successful';
-    $message = 'Your order is successfull, and your order will be shipped soon';
-    // set content-type to send HTML email
-    $headers = 'From: sjstore@localhost' . "\r\n" .
-        'Reply-To: sjstore@localhost' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
+    $to      = 'sjcustomer@localhost';          // this will be the set email address of customer
+    $subject = 'Your Order is on its way!!';
+    $message = 'Dear SJCustomer,
 
-    mail($to, $subject, $message, $headers, '-sjstore@localhost');
-}
+    Your order has been successfully placed, your order will be shipped soon.
+    Thank you for your purchase!
+                
+    SJ Team';
+    // set content-type to send HTML email
+    $headers = 'From: sjcustomer@localhost' . "\r\n" .
+        'Reply-To: sjcustomer@localhost' . "\r\n" .
+       'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers, '-sjcustomer@localhost');
+ }
 $orderId = $conn->insert_id;
 
 foreach ($_SESSION["cart_items"] as $item) {

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>SJ STORE</title>
 </head>
 
 <body>
@@ -16,56 +16,46 @@
     $privilege = $_SESSION['privilege'];
 
     ?>
-
-    <div class="catalogue">
-        <div class="main">
-            <div class="navbar">
-                <a href="index.php">
-                    <img src="res/coollogo_com-63181092.png" alt="shiba-logo">
-                </a>
-                <div class="navlink">
-
-                    <div class="dropdown">
-                        <a href="cataloge.php">All Products</a>
-                        <div class="dropdown-content">
-                            <a href="cataloge.php?productCategory=footwear">Footwear</a>
-                            <a href="cataloge.php?productCategory=top">Top</a>
-                            <a href="cataloge.php?productCategory=bottom">Bottom</a>
-
-                        </div>
+<div class="navbar">
+            <a href="index.php">
+                <img src="res/SJLOGO.jpg" alt="shiba-logo">
+            </a>
+            <div class="navlink">
+                <div class="dropdown">
+                    <a href="cataloge.php">All Products</a>
+                    <div class="dropdown-content">
+                        <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                        <a href="cataloge.php?productCategory=top">Top</a>
+                        <a href="cataloge.php?productCategory=bottom">Bottom</a>
                     </div>
-                    <div class="dropdown">
-                        <a href="cataloges.php">Best Selling</a>
-
-
-                    </div>
-
-                    <div class="dropdown">
-                        <a href="cart.php">Cart</a>
-                    </div>
-                    <div class="dropdown">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            $username = $_SESSION['username'];
-                            echo '<a href="index.php">' . $username . '</a>';
-                            // $privilege = 'admin'; // take away once sql side is solved
-                            if ($privilege == 'admin') {
-                                echo '<a href="admin.php">Admin</a>';
-                            }
-                            echo '<a href="logout.php">Logout</a>
-                        ';
-                        } else {
-                            echo '<a href="login.php">Login</a>';
+                </div>
+                <div class="dropdown">
+                    <a href="cart.php">Cart</a>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        if ($privilege == 'admin'){
+                            echo '<a href="admin.php">Admin</a>';
+                        } else{
+                        $username = $_SESSION['username'];
+                        echo '<a href="index.php">' . $username . '</a>';
                         }
-
-                        ?>
-
-                    </div>
-
+                    }
+                    ?>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        echo '<a href="logout.php">Logout</a>';
+                    } else {
+                        echo '<a href="login.php">Login</a>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
-
+    <div class="catalogue">
         <div class="productbody">
             <?php
             $query = "SELECT * FROM `Product` where productId='" . $_GET['productId'] . "' ";
@@ -96,25 +86,24 @@
             <div id="leftproduct">
                 <form method="post" action="add_to_cart.php">
                     <div class="selection">
-                        <h3 id="productname"><?php echo $name  ?></h1>
-                            <p>Please select size:</p>
+                        <p>Please select size:</p>
 
-                            <?php
-                            include 'php/connect.php';
-                            $query = "SELECT * from Product where productId='" . $_GET['productId'] . "'";
-                            $result = mysqli_query($conn, $query);
+                        <?php
+                        include 'php/connect.php';
+                        $query = "SELECT * from Product where productId='" . $_GET['productId'] . "'";
+                        $result = mysqli_query($conn, $query);
 
-                            if ($result->num_rows > 0) {
-                                // output data of each row
-                                while ($row = $result->fetch_assoc()) {
-                                    echo '
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                echo '
                                 <input name="size" type="radio" id="color" value="' . $row['size'] . '">
                                 <label name="size" for="black">' . $row['size'] . '</label>
                             ';
-                                }
                             }
-                            $result->free_result();
-                            ?>
+                        }
+                        $result->free_result();
+                        ?>
                     </div>
                     <div class="selection">
                         <h4 id="colortext">Color:
@@ -138,7 +127,6 @@
                         <input type="hidden" name="name" value="<?= $name; ?>">
 
                     </div>
-                    <input type="hidden" name="uniquekey" id="uniquekey">
 
                     <div class="selection">
                         <div align="center"><button id="addtocartbtn" type="submit" name="addToCart" class="add_to_cart">Add to cart</button></div>
@@ -152,16 +140,11 @@
             </div>
         </div>
         <footer>
-            <img src="res/coollogo_com-63181092.png" alt="logo">
-            <a href="aboutus.php">Contact us !</a>
-
+            <img src="res/SJLOGO.jpg" alt="logo">
+            <a href="">Contact us !</a>
 
         </footer>
     </div>
 </body>
-<script>
-    var key = Math.random()
-    document.getElementById("uniquekey").value = key
-</script>
 
 </html>
