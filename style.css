@@ -13,12 +13,13 @@
 .notfound a {
     text-align: center;
     text-size-adjust: 50px;
-    padding-top: 50px;
+    padding-top: 0px;
 }
 .notfound img{
     height: 450px;
     width: 750px;
-    padding-top: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     margin: auto;
 }
 .navbar {
@@ -29,7 +30,7 @@
     top: 0;
     z-index: 1;
     background-color: #ffffff;
-    border-bottom: 1px solid #000000;
+    border-bottom: 2px solid #d4d4d4;
 }
 .navlink {
     display: flex;
@@ -40,7 +41,8 @@
 .navbar img {
     width: auto;
     height: 100px;
-    padding: 0px;
+    padding-left: 5px;
+    padding-top: 5px;
 }
  .navlink a {
     text-decoration: none;
@@ -132,6 +134,7 @@
 footer {
     display: flex;
     gap: 200px;
+    box-shadow: inset 0px 2px 0px 0px #cfcfcf;
 }
 footer img {
     width: auto;
@@ -160,7 +163,9 @@ footer a {
     flex-direction: column;
     font-family: 'Rubik', sans-serif;
     padding: 20px;
-    border-right: 1px solid #000000;
+    border-right: 1px solid #4c4c4c;
+    background-color: #eeeeee;
+    box-shadow: -1px 0px 10px 1px #4c4c4c
 }
 .sidebar h4 {
     margin: 50px;
@@ -168,10 +173,13 @@ footer a {
 .sidebar a {
     margin: 50px;
     text-decoration: none;
+    color: #0b1f33;
 }
 .catalogue-items {
     display: grid;
     grid-template-columns: 400px 400px 400px;
+    padding-left: 100px;
+    
 }
 .catalogue-content {
     display: block;
