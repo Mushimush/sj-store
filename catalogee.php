@@ -64,7 +64,7 @@
     <div class="catalogue">
         <div class="catalogue-body">
             <nav class="sidebar">
-                <h4>Filter</h4>
+                <h4>Filter by</h4>
                 <a href="catalogee.php">Price</a>
                 <a href="cataloges.php">Best Selling</a>
             </nav>
@@ -115,7 +115,7 @@
 
         <footer>
             <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="">Contact us !</a>
+            <a href="contact.php">Contact us !</a>
 
         </footer>
 

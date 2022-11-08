@@ -141,7 +141,7 @@
         </div>
         <footer>
             <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="">Contact us !</a>
+            <a href="contact.php">Contact us !</a>
 
         </footer>
     </div>

@@ -27,11 +27,9 @@
     //    echo $row;
     // }
     ?>
-
-    <div class="main">
-        <div class="navbar">
+<div class="navbar">
             <a href="index.php">
-                <img src="res/SJLOGO.jpg" alt="shiba-logo">
+                <img src="res/SJLOGO.jpg" alt="SJlogo">
             </a>
             <div class="navbar">
                 <a href="index.php">
@@ -48,6 +46,7 @@
 
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="dropdown">
                         <a href="cataloges.php">Best Selling</a>
 
@@ -76,9 +75,36 @@
 
                     </div>
 
+=======
+                </div>
+                <div class="dropdown">
+                    <a href="cart.php">Cart</a>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        if ($privilege == 'admin'){
+                            echo '<a href="admin.php">Admin</a>';
+                        } else{
+                        $username = $_SESSION['username'];
+                        echo '<a href="index.php">' . $username . '</a>';
+                        }
+                    }
+                    ?>
+                </div>
+                <div class="dropdown">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        echo '<a href="logout.php">Logout</a>';
+                    } else {
+                        echo '<a href="login.php">Login</a>';
+                    }
+                    ?>
+>>>>>>> d1531364e9b938fc992db6132d53c56cc4dd6e40
                 </div>
             </div>
         </div>
+    <div class="main">
         <div class="payment">
             <form method="post" action="placeOrder.php">
                 <table class="customer-details-table">
@@ -113,7 +139,7 @@
         </div>
         <footer>
             <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="">Contact us !</a>
+            <a href="contact.php">Contact us !</a>
 
         </footer>
     </div>
