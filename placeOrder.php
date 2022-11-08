@@ -43,9 +43,13 @@ foreach ($_SESSION["cart_items"] as $item) {
 
     $sql1 = "INSERT INTO OrderItems (orderId, productId, quantity, size, colors)
 VALUES ('$orderId', '$productId' , '$quantity', '$size', '$color')";
-
-
     $conn->query($sql1);
+
+    $sql2 = "UPDATE Product SET stock= stock-'$quantity' where productId = '$productId' and size='$size' and color='$color' ";
+    // print_r($sql2);
+    // exit();
+    $conn->query($sql2);
 }
+
 
 header("location:order_success.php");
