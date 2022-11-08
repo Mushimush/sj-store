@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +20,7 @@ $privilege = $_SESSION['privilege'];
     <div class="main">
         <div class="navbar">
             <a href="index.php">
-                <img src="res/SJLOGO.jpg" alt="SJlogo">
+                <img src="res/SJLOGO.JPG" alt="SJlogo">
             </a>
             <div class="navlink">
                 <div class="dropdown">
@@ -31,16 +32,19 @@ $privilege = $_SESSION['privilege'];
                     </div>
                 </div>
                 <div class="dropdown">
+                    <a href="cataloges.php">Best Selling</a>
+                </div>
+                <div class="dropdown">
                     <a href="cart.php">Cart</a>
                 </div>
                 <div class="dropdown">
                     <?php
                     if (isset($_SESSION['username'])) {
-                        if ($privilege == 'admin'){
+                        if ($privilege == 'admin') {
                             echo '<a href="admin.php">Admin</a>';
-                        } else{
-                        $username = $_SESSION['username'];
-                        echo '<a href="index.php">' . $username . '</a>';
+                        } else {
+                            $username = $_SESSION['username'];
+                            echo '<a href="index.php">' . $username . '</a>';
                         }
                     }
                     ?>
@@ -69,12 +73,13 @@ $privilege = $_SESSION['privilege'];
 
 
         </div>
-        <footer>
-            <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="contact.php">Contact us !</a>
 
-        </footer>
     </div>
+    <footer>
+        <img src="res/SJLOGO.JPG" alt="logo">
+        <a href="contact.php">Contact us !</a>
+
+    </footer>
 </body>
 
 </html>

@@ -23,44 +23,47 @@
 
     ?>
     <div class="navbar">
-                <a href="index.php">
-                    <img src="res/SJLOGO.jpg" alt="SJlogo">
-                </a>
-                <div class="navlink">
-                    <div class="dropdown">
-                        <a href="cataloge.php">All Products</a>
-                        <div class="dropdown-content">
-                            <a href="cataloge.php?productCategory=footwear">Footwear</a>
-                            <a href="cataloge.php?productCategory=top">Top</a>
-                            <a href="cataloge.php?productCategory=bottom">Bottom</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="cart.php">Cart</a>
-                    </div>
-                    <div class="dropdown">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            if ($privilege == 'admin'){
-                                echo '<a href="admin.php">Admin</a>';
-                            } else{
-                            $username = $_SESSION['username'];
-                            echo '<a href="index.php">' . $username . '</a>';
-                            }
-                        }
-                        ?>
-                    </div>
-                    <div class="dropdown">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            echo '<a href="logout.php">Logout</a>';
-                        } else {
-                            echo '<a href="login.php">Login</a>';
-                        }
-                        ?>
-                    </div>
+        <a href="index.php">
+            <img src="res/SJLOGO.JPG" alt="SJlogo">
+        </a>
+        <div class="navlink">
+            <div class="dropdown">
+                <a href="cataloge.php">All Products</a>
+                <div class="dropdown-content">
+                    <a href="cataloge.php?productCategory=footwear">Footwear</a>
+                    <a href="cataloge.php?productCategory=top">Top</a>
+                    <a href="cataloge.php?productCategory=bottom">Bottom</a>
+                </div>
             </div>
+            <div class="dropdown">
+                <a href="cataloges.php">Best Selling</a>
             </div>
+            <div class="dropdown">
+                <a href="cart.php">Cart</a>
+            </div>
+            <div class="dropdown">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    if ($privilege == 'admin') {
+                        echo '<a href="admin.php">Admin</a>';
+                    } else {
+                        $username = $_SESSION['username'];
+                        echo '<a href="index.php">' . $username . '</a>';
+                    }
+                }
+                ?>
+            </div>
+            <div class="dropdown">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    echo '<a href="logout.php">Logout</a>';
+                } else {
+                    echo '<a href="login.php">Login</a>';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
     <div class="catalogue">
         <div class="catalogue-body">
             <nav class="sidebar">
@@ -113,14 +116,14 @@
 
         </div>
 
-        <footer>
-            <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="contact.php">Contact us !</a>
-
-        </footer>
 
     </div>
 
+    <footer>
+        <img src="res/SJLOGO.JPG" alt="logo">
+        <a href="contact.php">Contact us !</a>
+
+    </footer>
 </body>
 
 </html>

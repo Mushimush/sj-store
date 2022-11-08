@@ -19,7 +19,7 @@ $privilege = $_SESSION['privilege'];
     <div class="main">
         <div class="navbar">
             <a href="index.php">
-                <img src="res/SJLOGO.jpg" alt="shiba-logo">
+                <img src="res/SJLOGO.JPG" alt="shiba-logo">
             </a>
             <div class="navlink">
                 <div class="dropdown">
@@ -29,6 +29,9 @@ $privilege = $_SESSION['privilege'];
                         <a href="cataloge.php?productCategory=top">Top</a>
                         <a href="cataloge.php?productCategory=bottom">Bottom</a>
                     </div>
+                </div>
+                <div class="dropdown">
+                    <a href="cataloges.php">Best Selling</a>
                 </div>
                 <div class="dropdown">
                     <a href="cart.php">Cart</a>
@@ -134,13 +137,11 @@ $privilege = $_SESSION['privilege'];
 
 
         </div>
-
-
-        <footer>
-            <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="contact.html">Contact us !</a>
-        </footer>
     </div>
+    <footer>
+        <img src="res/SJLOGO.JPG" alt="logo">
+        <a href="contact.html">Contact us !</a>
+    </footer>
 </body>
 
 

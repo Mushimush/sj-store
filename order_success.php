@@ -18,9 +18,9 @@ $privilege = $_SESSION['privilege'];
 
 <body>
     <div class="main">
-    <div class="navbar">
+        <div class="navbar">
             <a href="index.php">
-                <img src="res/SJLOGO.jpg" alt="SJlogo">
+                <img src="res/SJLOGO.JPG" alt="SJlogo">
             </a>
             <div class="navlink">
                 <div class="dropdown">
@@ -32,16 +32,19 @@ $privilege = $_SESSION['privilege'];
                     </div>
                 </div>
                 <div class="dropdown">
+                    <a href="cataloges.php">Best Selling</a>
+                </div>
+                <div class="dropdown">
                     <a href="cart.php">Cart</a>
                 </div>
                 <div class="dropdown">
                     <?php
                     if (isset($_SESSION['username'])) {
-                        if ($privilege == 'admin'){
+                        if ($privilege == 'admin') {
                             echo '<a href="admin.php">Admin</a>';
-                        } else{
-                        $username = $_SESSION['username'];
-                        echo '<a href="index.php">' . $username . '</a>';
+                        } else {
+                            $username = $_SESSION['username'];
+                            echo '<a href="index.php">' . $username . '</a>';
                         }
                     }
                     ?>
@@ -61,7 +64,7 @@ $privilege = $_SESSION['privilege'];
             <h1>Thank you for your purchase !</h1>
 
             <?php
-            $sql = "SELECT `orderId` FROM `Order` where `username` = '$username'";
+            $sql = "SELECT `orderId` FROM `Order` where `username` = '$username'" ;
             $result = mysqli_query($conn, $sql);
             if ($result->num_rows > 0) {
                 // output data of each row
@@ -78,12 +81,12 @@ $privilege = $_SESSION['privilege'];
             <h3>We look forward to shopping with you again!</h3>
 
         </div>
-        <footer>
-            <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="contact.php">Contact us !</a>
 
-        </footer>
     </div>
+    <footer>
+        <img src="res/SJLOGO.JPG" alt="logo">
+        <a href="contact.php">Contact us !</a>
+    </footer>
 </body>
 
 </html>

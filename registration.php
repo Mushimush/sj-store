@@ -38,7 +38,7 @@
         }
     } else {
     ?>
-        <img src="res/coollogo_com-63181092.png" alt="">
+        <img src="res/SJLOGO.JPG" alt="">
         <form class="form" action="" method="post">
             <h1 class="login-title">Registration</h1>
             <div class="inputmax">

@@ -50,7 +50,7 @@ $username = $_SESSION['username'];
     <div class="main">
         <div class="navbar">
             <a href="index.php">
-                <img src="res/SJLOGO.jpg" alt="SJlogo">
+                <img src="res/SJLOGO.JPG" alt="SJlogo">
             </a>
             <div class="navlink">
                 <div class="dropdown">
@@ -65,13 +65,16 @@ $username = $_SESSION['username'];
                     <a href="cart.php">Cart</a>
                 </div>
                 <div class="dropdown">
+                    <a href="cataloges.php">Best Selling</a>
+                </div>
+                <div class="dropdown">
                     <?php
                     if (isset($_SESSION['username'])) {
-                        if ($privilege == 'admin'){
+                        if ($privilege == 'admin') {
                             echo '<a href="admin.php">Admin</a>';
-                        } else{
-                        $username = $_SESSION['username'];
-                        echo '<a href="index.php">' . $username . '</a>';
+                        } else {
+                            $username = $_SESSION['username'];
+                            echo '<a href="index.php">' . $username . '</a>';
                         }
                     }
                     ?>
@@ -144,12 +147,13 @@ $username = $_SESSION['username'];
 
         </div>
 
-        <footer>
-            <img src="res/SJLOGO.jpg" alt="logo">
-            <a href="contact.php">Contact us !</a>
 
-        </footer>
     </div>
+    <footer>
+        <img src="res/SJLOGO.JPG" alt="logo">
+        <a href="contact.php">Contact us !</a>
+
+    </footer>
 </body>
 
 </html>

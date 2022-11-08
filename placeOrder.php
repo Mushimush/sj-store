@@ -15,7 +15,7 @@ $totalAmount = $_POST["totalAmount"];
 //insert into order table
 
 $currentDate = date('Y-m-d');
-$sql = "INSERT INTO `Order` (username, email, purchasedDate, totalAmount) VALUES ('$username', '$email', '$currentDate', '$totalAmount')";
+$sql = "INSERT INTO `Order` (username, email, address, purchasedDate, totalAmount) VALUES ('$username', '$email','$address', '$currentDate', '$totalAmount')";
 
 $conn->query($sql);
 if (mysqli_affected_rows($conn) > 0) {
@@ -33,21 +33,22 @@ if (mysqli_affected_rows($conn) > 0) {
     // set content-type to send HTML email
     $headers = 'From: sjcustomer@localhost' . "\r\n" .
         'Reply-To: sjcustomer@localhost' . "\r\n" .
-       'X-Mailer: PHP/' . phpversion();
+        'X-Mailer: PHP/' . phpversion();
 
     mail($to, $subject, $message, $headers, '-sjcustomer@localhost');
- }
+}
 $orderId = $conn->insert_id;
 
 foreach ($_SESSION["cart_items"] as $item) {
 
     $productId = $item['productId'];
     $quantity = $item['qty'];
+    $name = $item['name'];
     $size = $item['size'];
     $color = $item['color'];
 
-    $sql1 = "INSERT INTO OrderItems (orderId, productId, quantity, size, colors)
-VALUES ('$orderId', '$productId' , '$quantity', '$size', '$color')";
+    $sql1 = "INSERT INTO OrderItems (orderId, productId,name, quantity, size, colors)
+VALUES ('$orderId', '$productId' ,'$name', '$quantity', '$size', '$color')";
     $conn->query($sql1);
 
     $sql2 = "UPDATE Product SET stock= stock-'$quantity' where productId = '$productId' and size='$size' and color='$color' ";
