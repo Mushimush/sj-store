@@ -46,36 +46,6 @@
 
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div class="dropdown">
-                        <a href="cataloges.php">Best Selling</a>
-
-
-                    </div>
-
-                    <div class="dropdown">
-                        <a href="cart.php">Cart</a>
-                    </div>
-                    <div class="dropdown">
-                        <?php
-                        if (isset($_SESSION['username'])) {
-                            $username = $_SESSION['username'];
-                            echo '<a href="index.php">' . $username . '</a>';
-                            // $privilege = 'admin'; // take away once sql side is solved
-                            if ($privilege == 'admin') {
-                                echo '<a href="admin.php">Admin</a>';
-                            }
-                            echo '<a href="logout.php">Logout</a>
-                        ';
-                        } else {
-                            echo '<a href="login.php">Login</a>';
-                        }
-
-                        ?>
-
-                    </div>
-
-=======
                 </div>
                 <div class="dropdown">
                     <a href="cart.php">Cart</a>
@@ -100,7 +70,6 @@
                         echo '<a href="login.php">Login</a>';
                     }
                     ?>
->>>>>>> d1531364e9b938fc992db6132d53c56cc4dd6e40
                 </div>
             </div>
         </div>
