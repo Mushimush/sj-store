@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJ STORE</title>
     <link rel="stylesheet" href="style.css">
+
+    <title>SJ STORE</title>
 </head>
 
 <body>
     <?php
     require('php/connect.php');
     require('auth_session.php');
-
+    //$productCategory = $_GET['productCategory'];
+    if (isset($_GET['productCategory'])) {
+        $productCategory = $_GET['productCategory'];
+    }
     $username = $_SESSION['username'];
     $privilege = $_SESSION['privilege'];
+
     ?>
     <div class="navbar">
         <a href="index.php">
@@ -62,29 +67,45 @@
             </div>
         </div>
     </div>
-    <div class="main">
-        <div id="aboutus">
-            <div id="aboutusleft">
-                <h2>About us</h2>
-                <img src="res/SJ.jpg" alt="">
-                <p>Hi and welcome to SJ store!! We thank you for browsing around and purchasing our products. <br>We are a 2 young and wild kids who have a PASSION FOR FASHION which lead us to creating this online store . <br>Feel free to contact us if neccesary!</p>
-            </div>
-            <div id="aboutusright">
-                <h2>Contact us!</h2>
-                <p>Hotline: <br>1800-5522-2525</p>
-                <p>Email: <br><a href="SJstore@sj.com">SJstore@sj.com</a></p>
-                <h2>Other useful Links</h2>
-                <a href="https://www.ntu.edu.sg/">NTU</a>
-                <a href="404.html">:)</a>
-            </div>
-        </div>
+    <div class="order">
+        <h1>Hello, <?php echo ' ' . $username . ' ' ?>, here is your order history!</h1>
+        <?php
+
+        include 'php/connect.php';
+
+        $sql = "SELECT * FROM `Order` where username = '$username'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+
+
+                echo '
+                        <div class="userorder">
+                             <div class="order-content">
+                                 <h1> Order Number : ' . $row['orderId'] . ' </h1>
+                                 <div class="address"> Shipping Address : ' . $row['address'] . '</div>
+                                 <div class="purchasedDate"> Order Date : ' . $row['purchasedDate'] . '</div>
+                                  <div class="totalamount"> Total Amount : ' . $row['totalAmount'] . '</div>
+                              </div>
+                        </div>
+         
+
+                        ';
+            }
+        }
+
+
+        ?>
+
 
     </div>
     <footer>
-        <img src="res/SJLOGO.JPG" alt="SJlogo">
+        <img src="res/SJLOGO.JPG" alt="logo">
         <a href="contact.php">Contact us !</a>
-
     </footer>
+
 </body>
 
 </html>

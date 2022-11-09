@@ -47,8 +47,8 @@ foreach ($_SESSION["cart_items"] as $item) {
     $size = $item['size'];
     $color = $item['color'];
 
-    $sql1 = "INSERT INTO OrderItems (orderId, productId,name, quantity, size, colors)
-VALUES ('$orderId', '$productId' ,'$name', '$quantity', '$size', '$color')";
+    $sql1 = "INSERT INTO OrderItems (username,orderId, productId,name, quantity, size, colors)
+VALUES ('$username','$orderId', '$productId' ,'$name', '$quantity', '$size', '$color')";
     $conn->query($sql1);
 
     $sql2 = "UPDATE Product SET stock= stock-'$quantity' where productId = '$productId' and size='$size' and color='$color' ";

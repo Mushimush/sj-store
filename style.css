@@ -567,6 +567,29 @@ input{
     box-sizing: border-box;
 
 }
+.order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.userorder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
+
+
+}
+
+.order-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
 
 /* Modal */

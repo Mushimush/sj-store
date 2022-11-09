@@ -40,8 +40,10 @@ $privilege = $_SESSION['privilege'];
                     <?php
                     if (isset($_SESSION['username'])) {
                         $username = $_SESSION['username'];
-                        echo '<a href="index.php">' . $username . '</a>';
-                        // $privilege = 'admin'; // take away once sql side is solved
+                        echo '
+                        <a href="userorders.php">' . $username . '</a>
+
+                        ';                        // $privilege = 'admin'; // take away once sql side is solved
                         if ($privilege == 'admin') {
                             echo '<a href="admin.php">Admin</a>';
                         }

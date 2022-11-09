@@ -44,7 +44,10 @@ $privilege = $_SESSION['privilege'];
                             echo '<a href="admin.php">Admin</a>';
                         } else {
                             $username = $_SESSION['username'];
-                            echo '<a href="index.php">' . $username . '</a>';
+                            echo '
+                            <a href="userorders.php">' . $username . '</a>
+
+                            ';
                         }
                     }
                     ?>
@@ -64,7 +67,7 @@ $privilege = $_SESSION['privilege'];
             <h1>Thank you for your purchase !</h1>
 
             <?php
-            $sql = "SELECT `orderId` FROM `Order` where `username` = '$username'" ;
+            $sql = "SELECT `orderId` FROM `Order` where `username` = '$username'";
             $result = mysqli_query($conn, $sql);
             if ($result->num_rows > 0) {
                 // output data of each row

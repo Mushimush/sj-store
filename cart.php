@@ -45,7 +45,10 @@
                             echo '<a href="admin.php">Admin</a>';
                         } else {
                             $username = $_SESSION['username'];
-                            echo '<a href="index.php">' . $username . '</a>';
+                            echo '
+                            <a href="userorders.php">' . $username . '</a>
+
+                            ';
                         }
                     }
                     ?>
