@@ -77,7 +77,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Stanley - [Email](stanleytanyr@gmail.com)
+Stanley - [stanleytanyr@gmail.com](stanleytanyr@gmail.com)
 
 Project Link: [https://github.com/Mushimush/sj-store](https://github.com/Mushimush/sj-store)
 
