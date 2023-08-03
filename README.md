@@ -11,7 +11,7 @@
 </div>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project.
 
 
 The purpose of this project is to create a online shoe store with LAMP stack.
